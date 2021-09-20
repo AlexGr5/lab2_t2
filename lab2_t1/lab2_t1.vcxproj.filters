@@ -21,9 +21,15 @@
     <ClCompile Include="Teacher.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="Lesson.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Teacher.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Lesson.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
