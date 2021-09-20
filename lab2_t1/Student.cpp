@@ -1,15 +1,17 @@
 #include "Student.h"
 
-// Инициализация структуры Ученик
-void init_s(Student& st)
+// Очищение всех полей структуры Ученик (Student)
+Student null_znach_Stud()
 {
+    Student st;
+
     st.Fam = "";
     st.Name = "";
     st.Otch = "";
     Lessons L;
     Mark M;
-    init_l(L);
-    init_m(M);
+    L = init_l("");
+    M = init_m(0);
     st.i = 0;
     for (int i = 0; i < 20; i++)
     {
@@ -20,11 +22,44 @@ void init_s(Student& st)
     {
         st.mas_Marks[i] = M;
     }
+
+    return st;
 }
 
+
+// Инициализация структуры Ученик
+Student init_s(string Fam, string Name, string Otch, Mark mas_m[20], Lessons mas_l[20])
+{
+    Student st;
+    st = null_s();
+
+    st.Fam = Fam;
+    st.Name = Name;
+    st.Otch = Otch;
+    
+    st.i = 0;
+    
+    int i = 0;
+    while (st.mas_Less[i].Name != "")
+    {
+        st.mas_Less[i] = mas_l[i];
+        i++;
+        st.i++;
+    }
+
+    for (int i = 0; i < 20; i++)
+    {
+        st.mas_Marks[i] = mas_m[i];
+    }
+
+    return st;
+}
+
+/*
 // Ввод данных в структуру Ученик
 void inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20])
 {
+
     cout << "Введите Фамилию ученика: ";
     cin >> st.Fam;
     cout << "Введите Имя ученика: ";
@@ -41,20 +76,27 @@ void inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20])
     {
         st.mas_Marks[i] = *mas_m[i];
     }
+
 }
+*/
 
 // Ввод ФИО ученика в структуру
-void inp_FIO_Stud(Student& st)
+Student inp_FIO_Stud()
 {
+    Student st;
+    st = null_znach_Stud();
     cout << "Введите Фамилию ученика: ";
     cin >> st.Fam;
     cout << "Введите Имя ученика: ";
     cin >> st.Name;
     cout << "Введите Отчество ученика: ";
     cin >> st.Otch;
+
+    return st;
 }
 
 // Добавление к ученику урока
+// 0 - не удачно, 1 - удачно
 int add_Less_to_Stud(Student& st, Lessons& ls)
 {
     int fl = 0;
@@ -72,6 +114,7 @@ int add_Less_to_Stud(Student& st, Lessons& ls)
 }
 
 // Добавление к ученику урока и оценки
+// 0 - не удачно, 1 - удачно
 int add_LM_to_Stud(Student& st, Lessons& ls, Mark& m)
 {
     int fl = 0;
@@ -90,6 +133,7 @@ int add_LM_to_Stud(Student& st, Lessons& ls, Mark& m)
 }
 
 // Добавление к ученику оценки к конкретному предмету
+// 0 - не удачно, 1 - удачно
 int add_Mark_to_Stud(Student& st, Lessons& ls, Mark& m)
 {
     int fl = 0;
@@ -118,7 +162,7 @@ int add_Mark_to_Stud(Student& st, Lessons& ls, Mark& m)
 // Вывод ученика
 // Передаем ученика и флаг для различного вывода уроков и оценок
 // fl_out (0 или 1)
-void out_Stud(Student& st, int fl_out)
+void out_Stud(Student st, int fl_out)
 {
     cout << "ФИО ученика: " << st.Fam << " " << st.Name << " " << st.Otch << endl;
 

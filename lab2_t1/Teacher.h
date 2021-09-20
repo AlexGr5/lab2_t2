@@ -10,16 +10,16 @@ using namespace std;
 // Структура Учитель
 struct Teacher
 {
-    string Fam;             // Фамилия
-    string Name;            // Имя
-    string Otch;            // Отчество
+    string Fam = "";        // Фамилия
+    string Name = "";       // Имя
+    string Otch = "";       // Отчество
 };
 
 // Инициализация структуры Учитель
-void init_t(Teacher& t);
+Teacher init_t(string Fam, string Name, string Otch);
 
 // Ввод учителя, передаем адрес, где будет храниться информация
-void inp_Teach(Teacher& t);
+Teacher inp_Teach();
 
 // Ввод учителя, передаем адрес, где будет храниться информация
-void out_Teach(Teacher& t);
+void out_Teach(Teacher t);

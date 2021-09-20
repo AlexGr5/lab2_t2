@@ -1,24 +1,30 @@
 #include "Mark.h"
 
 // Инициализация структуры Оценка
-void init_m(Mark& m)
+Mark init_m(int v)
 {
-    m.Value = 0;
+    Mark m;
+    m.Value = v;
+
+    return m;
 }
 
 // Ввод данных в структуру Оценка
-void inp_Mark(Mark& m)
+Mark inp_Mark()
 {
+    Mark m;
+    m = init_m(0);
     string mark;
     cout << "Введите оценку: ";
     cin >> mark;
     m.Value = stoi(mark);
     cout << endl;
 
+    return m;
 }
 
 // Вывод данных из структуры
-void out_Mark(Mark& m)
+void out_Mark(Mark m)
 {
     cout << "Оценка: " << m.Value << endl;
 

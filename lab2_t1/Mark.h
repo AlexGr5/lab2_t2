@@ -5,14 +5,14 @@
 // Структура Оценка
 struct Mark
 {
-    int Value;              // Оценка
+    int Value = 0;          // Оценка
 };
 
 // Инициализация структуры Оценка
-void init_m(Mark& m);
+Mark init_m(int v);
 
 // Ввод данных в структуру Оценка
-void inp_Mark(Mark& m);
+Mark inp_Mark();
 
 // Вывод данных из структуры
-void out_Mark(Mark& m);
+void out_Mark(Mark m);

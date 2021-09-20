@@ -5,15 +5,15 @@
 // Структура Уроки
 struct Lessons
 {
-    string Name;            // Название предмета
+    string Name = "";       // Название предмета
     Teacher Teach;          // Учитель
 };
 
 // Инициализация структуры Уроки
-void init_l(Lessons& ls);
+Lessons init_l(string Name_Less);
 
 // Ввод уроков, передаем адрес, где будет храниться информация и адрес учителя
-void inp_Less(Lessons& ls, Teacher& t);
+Lessons inp_Less(Teacher t);
 
 // Вывод уроков, передаем адрес, где будет храниться информация
-void out_Less(Lessons& ls);
+void out_Less(Lessons ls);

@@ -1,17 +1,22 @@
 #include "Lesson.h"
 
 // Инициализация структуры Уроки
-void init_l(Lessons& ls)
+Lessons init_l(string Name_Less)
 {
-    ls.Name = "";
+    Lessons ls;
+    ls.Name = Name_Less;
     Teacher t;
-    init_t(t);
+    t = init_t("", "", "");
     ls.Teach = t;
+
+    return ls;
 }
 
 // Ввод уроков, передаем адрес, где будет храниться информация и адрес учителя
-void inp_Less(Lessons& ls, Teacher& t)
+Lessons inp_Less(Teacher t)
 {
+    Lessons ls;
+    ls = init_l("");
     cout << "Введите название предмета: ";
     cin >> ls.Name;
     cout << endl;
@@ -19,7 +24,7 @@ void inp_Less(Lessons& ls, Teacher& t)
 }
 
 // Вывод уроков, передаем адрес, где будет храниться информация
-void out_Less(Lessons& ls)
+void out_Less(Lessons ls)
 {
     cout << "Название предмета: " << ls.Name << endl;
     out_Teach(ls.Teach);

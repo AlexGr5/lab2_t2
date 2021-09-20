@@ -13,17 +13,17 @@ int main()
     Teacher t_Chem;
     Teacher* t_Biology = new Teacher;
 
-    init_t(t_Chem);
-    init_t(*t_Biology);
+    t_Chem = init_t("", "", "");
+    *t_Biology = init_t("", "", "");
 
     cout << "Введите ФИО 2-ух учителей:" << endl;
     cout << endl;
-    inp_Teach(t_Chem);
+    t_Chem = inp_Teach();
     out_Teach(t_Chem);
 
     cout << endl;
 
-    inp_Teach(*t_Biology);
+    *t_Biology = inp_Teach();
     out_Teach(*t_Biology);
     cout << "===================================================" << endl;
 
@@ -34,14 +34,14 @@ int main()
     Lessons Chem;
     Lessons* Biology = new Lessons;
 
-    init_l(Chem);
-    init_l(*Biology);
+    Chem = init_l("");
+    *Biology = init_l("");
 
     cout << "Введите 2 урока:" << endl;
     cout << endl;
     cout << "Для учителя - ";
     out_Teach(t_Chem);
-    inp_Less(Chem, t_Chem);
+    Chem = inp_Less(t_Chem);
     cout << "Вывод:" << endl;
     out_Less(Chem);
 
@@ -49,7 +49,7 @@ int main()
 
     cout << "Для учителя - ";
     out_Teach(*t_Biology);
-    inp_Less(*Biology, *t_Biology);
+    *Biology = inp_Less(*t_Biology);
     cout << "Вывод:" << endl;
     out_Less(*Biology);
     cout << "===================================================" << endl;
@@ -62,14 +62,14 @@ int main()
     Student* st2 = new Student;
     Student st3;
 
-    init_s(st1);
-    init_s(*st2);
-    init_s(st3);
+    st1 = null_s();
+    *st2 = null_s();
+    st3 = null_s();
 
     cout << "Введите 3 ученика:" << endl;
     cout << endl;
     cout << "Первый ученик:" << endl;
-    inp_FIO_Stud(st1);
+    st1 = inp_FIO_Stud();
 
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
@@ -88,7 +88,7 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            init_m(mr);
+            mr = init_m(0);
             mr.Value = stoi(str);
             if ((mr.Value >= 1) || (mr.Value <= 5))
             {
@@ -126,7 +126,7 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            init_m(mr);
+            mr = init_m(0);
             mr.Value = stoi(str);
             if ((mr.Value >= 1) || (mr.Value <= 5))
             {
@@ -149,7 +149,7 @@ int main()
 
     cout << endl;
     cout << "Второй ученик:" << endl;
-    inp_FIO_Stud(*st2);
+    *st2 = inp_FIO_Stud();
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
     out_Less(Chem);
@@ -166,7 +166,7 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            init_m(mr);
+            mr = init_m(0);
             mr.Value = stoi(str);
             if ((mr.Value >= 1) || (mr.Value <= 5))
             {
@@ -204,7 +204,7 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            init_m(mr);
+            mr = init_m(0);
             mr.Value = stoi(str);
             if ((mr.Value >= 1) || (mr.Value <= 5))
             {
@@ -227,7 +227,7 @@ int main()
 
     cout << endl;
     cout << "Третий ученик:" << endl;
-    inp_FIO_Stud(st3);
+    st3 = inp_FIO_Stud();
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
     out_Less(Chem);
@@ -244,7 +244,7 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            init_m(mr);
+            mr = init_m(0);
             mr.Value = stoi(str);
             if ((mr.Value >= 1) || (mr.Value <= 5))
             {
@@ -282,7 +282,7 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            init_m(mr);
+            mr = init_m(0);
             mr.Value = stoi(str);
             if ((mr.Value >= 1) || (mr.Value <= 5))
             {
@@ -316,11 +316,11 @@ int main()
     Class_ cl1;
     Class_* cl2 = new Class_;
 
-    init_c(cl1);
-    init_c(*cl2);
+    cl1 = null_c();
+    *cl2 = null_c();
 
     cout << "Введите данные для первого класса" << endl;
-    inp_Class_(cl1);
+    cl1 = inp_Class_();
     cout << endl;
     out_Stud(st1, 1);
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
@@ -387,7 +387,7 @@ int main()
 
 
     cout << "Введите данные для второго класса" << endl;
-    inp_Class_(*cl2);
+    *cl2 = inp_Class_();
     cout << endl;
     out_Stud(st1, 1);
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
