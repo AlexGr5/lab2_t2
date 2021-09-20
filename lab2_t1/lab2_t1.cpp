@@ -480,5 +480,7 @@ int main()
     Bed_Stud_inClass(*cl2);
 
     cout << "***************************************************" << endl;
+
+    system("Pause");
 }
 
