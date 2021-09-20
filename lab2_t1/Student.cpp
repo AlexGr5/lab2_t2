@@ -1,7 +1,7 @@
 #include "Student.h"
 
 // Очищение всех полей структуры Ученик (Student)
-Student null_znach_Stud()
+Student null_s()
 {
     Student st;
 
@@ -84,7 +84,7 @@ void inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20])
 Student inp_FIO_Stud()
 {
     Student st;
-    st = null_znach_Stud();
+    st = null_s();
     cout << "Введите Фамилию ученика: ";
     cin >> st.Fam;
     cout << "Введите Имя ученика: ";

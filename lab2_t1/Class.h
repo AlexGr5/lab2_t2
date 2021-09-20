@@ -15,7 +15,7 @@ struct Class_
 Class_ null_c();
 
 // Инициализация структуры Класс
-Class_ init_c(string Name, string Year, Student mas[32]);
+Class_ init_c(string Name, string Year, Student* mas[32]);
 
 // Ввод данных в структуру Класс
 Class_ inp_Class_();

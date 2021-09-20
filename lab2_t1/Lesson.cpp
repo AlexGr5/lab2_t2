@@ -21,6 +21,8 @@ Lessons inp_Less(Teacher t)
     cin >> ls.Name;
     cout << endl;
     ls.Teach = t;
+
+    return ls;
 }
 
 // Вывод уроков, передаем адрес, где будет храниться информация

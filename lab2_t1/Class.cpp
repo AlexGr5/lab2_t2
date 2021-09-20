@@ -19,7 +19,7 @@ Class_ null_c()
 }
 
 // Инициализация структуры Класс
-Class_ init_c(string Name, string Year, Student mas[32])
+Class_ init_c(string Name, string Year, Student* mas[32])
 {
     Class_ cl;
 
@@ -30,7 +30,7 @@ Class_ init_c(string Name, string Year, Student mas[32])
     S = null_s();
     for (int i = 0; i < 32; i++)
     {
-        cl.mas_Stud[i] =mas[i];
+        cl.mas_Stud[i] = *mas[i];
     }
 
     return cl;
