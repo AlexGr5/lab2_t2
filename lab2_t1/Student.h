@@ -21,3 +21,17 @@ int inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20]);
 
 // Ввод ФИО ученика в структуру
 int inp_FIO_Stud(Student& st);
+
+// Добавление к ученику урока
+int add_Less_to_Stud(Student& st, Lessons& ls);
+
+// Добавление к ученику урока и оценки
+int add_LM_to_Stud(Student& st, Lessons& ls, Mark& m);
+
+// Добавление к ученику оценки к конкретному предмету
+int add_Mark_to_Stud(Student& st, Lessons& ls, Mark& m);
+
+// Вывод ученика
+// Передаем ученика и флаг для различного вывода уроков и оценок
+// fl_out (0 или 1)
+int out_Stud(Student& st, int fl_out);
