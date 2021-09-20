@@ -15,14 +15,14 @@ struct Class_
 void init_c(Class_& cl);
 
 // Ввод данных в структуру Класс
-int inp_Class_(Class_& cl/*, Student *mas[32]*/);
+void inp_Class_(Class_& cl/*, Student *mas[32]*/);
 
 // Добавление к классу ченика
 int add_St_to_Cl(Class_& cl, Student& st);
 
 // Выод данных из структуры Класс
 // fl_out (0 или 1)
-int out_Class_(Class_& cl, int fl_out);
+void out_Class_(Class_& cl, int fl_out);
 
 // Функция по нахождению лучших учеников в классе
 int Best_Stud_inClass(Class_& cl);

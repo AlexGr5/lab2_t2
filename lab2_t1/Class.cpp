@@ -15,7 +15,7 @@ void init_c(Class_& cl)
 }
 
 // Ввод данных в структуру Класс
-int inp_Class_(Class_& cl/*, Student *mas[32]*/)
+void inp_Class_(Class_& cl/*, Student *mas[32]*/)
 {
     cout << "Введите название класса: ";
     cin >> cl.Name;
@@ -30,8 +30,6 @@ int inp_Class_(Class_& cl/*, Student *mas[32]*/)
         cl.mas_Stud[i] = *mas[i];
     }
     */
-
-    return 0;
 }
 
 // Добавление к классу ченика
@@ -50,7 +48,7 @@ int add_St_to_Cl(Class_& cl, Student& st)
 
 // Выод данных из структуры Класс
 // fl_out (0 или 1)
-int out_Class_(Class_& cl, int fl_out)
+void out_Class_(Class_& cl, int fl_out)
 {
     cout << "Название класса: " << cl.Name << endl;;
     cout << "Год обучения: " << cl.year << endl;
@@ -75,8 +73,6 @@ int out_Class_(Class_& cl, int fl_out)
             i++;
         }
     }
-
-    return 0;
 }
 
 // Функция по нахождению лучших учеников в классе

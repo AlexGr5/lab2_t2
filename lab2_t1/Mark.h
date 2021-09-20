@@ -12,7 +12,7 @@ struct Mark
 void init_m(Mark& m);
 
 // Ввод данных в структуру Оценка
-int inp_Mark(Mark& m);
+void inp_Mark(Mark& m);
 
 // Вывод данных из структуры
-int out_Mark(Mark& m);
+void out_Mark(Mark& m);

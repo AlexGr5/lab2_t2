@@ -23,7 +23,7 @@ void init_s(Student& st)
 }
 
 // Ввод данных в структуру Ученик
-int inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20])
+void inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20])
 {
     cout << "Введите Фамилию ученика: ";
     cin >> st.Fam;
@@ -41,12 +41,10 @@ int inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20])
     {
         st.mas_Marks[i] = *mas_m[i];
     }
-
-    return 0;
 }
 
 // Ввод ФИО ученика в структуру
-int inp_FIO_Stud(Student& st)
+void inp_FIO_Stud(Student& st)
 {
     cout << "Введите Фамилию ученика: ";
     cin >> st.Fam;
@@ -54,8 +52,6 @@ int inp_FIO_Stud(Student& st)
     cin >> st.Name;
     cout << "Введите Отчество ученика: ";
     cin >> st.Otch;
-
-    return 0;
 }
 
 // Добавление к ученику урока
@@ -122,7 +118,7 @@ int add_Mark_to_Stud(Student& st, Lessons& ls, Mark& m)
 // Вывод ученика
 // Передаем ученика и флаг для различного вывода уроков и оценок
 // fl_out (0 или 1)
-int out_Stud(Student& st, int fl_out)
+void out_Stud(Student& st, int fl_out)
 {
     cout << "ФИО ученика: " << st.Fam << " " << st.Name << " " << st.Otch << endl;
 
@@ -149,6 +145,4 @@ int out_Stud(Student& st, int fl_out)
             i++;
         }
     }
-
-    return 0;
 }

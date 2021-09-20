@@ -17,10 +17,10 @@ struct Student
 void init_s(Student& st);
 
 // Ввод данных в структуру Ученик
-int inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20]);
+void inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20]);
 
 // Ввод ФИО ученика в структуру
-int inp_FIO_Stud(Student& st);
+void inp_FIO_Stud(Student& st);
 
 // Добавление к ученику урока
 int add_Less_to_Stud(Student& st, Lessons& ls);
@@ -34,4 +34,4 @@ int add_Mark_to_Stud(Student& st, Lessons& ls, Mark& m);
 // Вывод ученика
 // Передаем ученика и флаг для различного вывода уроков и оценок
 // fl_out (0 или 1)
-int out_Stud(Student& st, int fl_out);
+void out_Stud(Student& st, int fl_out);

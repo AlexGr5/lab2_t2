@@ -7,7 +7,7 @@ void init_m(Mark& m)
 }
 
 // Ввод данных в структуру Оценка
-int inp_Mark(Mark& m)
+void inp_Mark(Mark& m)
 {
     string mark;
     cout << "Введите оценку: ";
@@ -15,13 +15,11 @@ int inp_Mark(Mark& m)
     m.Value = stoi(mark);
     cout << endl;
 
-    return 0;
 }
 
 // Вывод данных из структуры
-int out_Mark(Mark& m)
+void out_Mark(Mark& m)
 {
     cout << "Оценка: " << m.Value << endl;
 
-    return 0;
 }

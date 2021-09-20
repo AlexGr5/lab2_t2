@@ -19,7 +19,7 @@ struct Teacher
 void init_t(Teacher& t);
 
 // ¬вод учител€, передаем адрес, где будет хранитьс€ информаци€
-int inp_Teach(Teacher& t);
+void inp_Teach(Teacher& t);
 
 // ¬вод учител€, передаем адрес, где будет хранитьс€ информаци€
-int out_Teach(Teacher& t);
+void out_Teach(Teacher& t);
