@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Teacher.h"
+#include "Lesson.h"
 
 // Структура Оценка
 struct Mark
