@@ -5,12 +5,13 @@
 // Структура Ученик
 struct Student
 {
-    string Fam = "";        // Фамилия
-    string Name = "";       // Имя
-    string Otch = "";       // Отчество
-    Mark mas_Marks[20];     // Массив оценок
-    Lessons mas_Less[20];   // Массив уроков
-    int i = 0;              // Текущее кол-во уроков
+    string Fam = "";            // Фамилия
+    string Name = "";           // Имя
+    string Otch = "";           // Отчество
+    Mark mas_Marks[20];         // Массив оценок
+    Lessons mas_Less[20];       // Массив уроков
+    int i = 0;                  // Текущее кол-во уроков
+    void (*P_func) (Student);   // Указатель на функцию
 };
 
 // Очищение всех полей структуры Ученик (Student)
@@ -18,9 +19,6 @@ Student null_s();
 
 // Инициализация структуры Ученик
 Student init_s(string Fam, string Name, string Otch, Mark mas_m[20], Lessons mas_l[20]);
-
-// Ввод данных в структуру Ученик
-//void inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20]);
 
 // Ввод ФИО ученика в структуру
 Student inp_FIO_Stud();
@@ -38,3 +36,11 @@ int add_Mark_to_Stud(Student& st, Lessons& ls, Mark& m);
 // Передаем ученика и флаг для различного вывода уроков и оценок
 // fl_out (0 или 1)
 void out_Stud(Student st, int fl_out);
+
+
+// Разные приветствия
+void hel1(Student st);
+
+void hel2(Student st);
+
+void hel3(Student st);

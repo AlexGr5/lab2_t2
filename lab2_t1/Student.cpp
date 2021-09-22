@@ -55,31 +55,6 @@ Student init_s(string Fam, string Name, string Otch, Mark mas_m[20], Lessons mas
     return st;
 }
 
-/*
-// Ввод данных в структуру Ученик
-void inp_Stud(Student& st, Mark* mas_m[20], Lessons* mas_l[20])
-{
-
-    cout << "Введите Фамилию ученика: ";
-    cin >> st.Fam;
-    cout << "Введите Имя ученика: ";
-    cin >> st.Name;
-    cout << "Введите Отчество ученика: ";
-    cin >> st.Otch;
-
-    for (int i = 0; i < 20; i++)
-    {
-        st.mas_Less[i] = *mas_l[i];
-    }
-
-    for (int i = 0; i < 20; i++)
-    {
-        st.mas_Marks[i] = *mas_m[i];
-    }
-
-}
-*/
-
 // Ввод ФИО ученика в структуру
 Student inp_FIO_Stud()
 {
@@ -189,4 +164,21 @@ void out_Stud(Student st, int fl_out)
             i++;
         }
     }
+}
+
+
+// Разные приветствия
+void hel1(Student st)
+{
+    cout << "Здравствуйте, я " << st.Name << "!" << endl;
+}
+
+void hel2(Student st)
+{
+    cout  << st.Name << " приветствует вас!" << endl;
+}
+
+void hel3(Student st)
+{
+    cout << "Всем привет, я " << st.Name << "!" << endl;
 }
