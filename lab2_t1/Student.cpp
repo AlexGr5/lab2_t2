@@ -72,7 +72,7 @@ Student inp_FIO_Stud()
 
 // Добавление к ученику урока
 // 0 - не удачно, 1 - удачно
-int add_Less_to_Stud(Student& st, Lessons& ls)
+int add_Less_to_Stud(Student& st, Lessons ls)
 {
     int fl = 0;
 
@@ -90,7 +90,7 @@ int add_Less_to_Stud(Student& st, Lessons& ls)
 
 // Добавление к ученику урока и оценки
 // 0 - не удачно, 1 - удачно
-int add_LM_to_Stud(Student& st, Lessons& ls, Mark& m)
+int add_LM_to_Stud(Student& st, Lessons ls, Mark m)
 {
     int fl = 0;
 
@@ -109,7 +109,7 @@ int add_LM_to_Stud(Student& st, Lessons& ls, Mark& m)
 
 // Добавление к ученику оценки к конкретному предмету
 // 0 - не удачно, 1 - удачно
-int add_Mark_to_Stud(Student& st, Lessons& ls, Mark& m)
+int add_Mark_to_Stud(Student& st, Lessons ls, Mark m)
 {
     int fl = 0;
 

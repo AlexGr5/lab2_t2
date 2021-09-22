@@ -481,6 +481,26 @@ int main()
 
     cout << "***************************************************" << endl;
 
+    cout << endl;
+    cout << endl;
+    cout << endl;
+
+    cout << "****Использование указателей на функцию в структуре Ученик (Student)****" << endl;
+
+    st1.P_func = hel1;
+    st1.P_func(st1);
+
+    cout << endl;
+    st1.P_func = hel2;
+    st1.P_func(st1);
+
+    cout << endl;
+    st1.P_func = hel3;
+    st1.P_func(st1);
+
+    cout << "***************************************************" << endl;
+
+
     system("Pause");
 }
 

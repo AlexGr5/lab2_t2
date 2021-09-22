@@ -24,13 +24,13 @@ Student init_s(string Fam, string Name, string Otch, Mark mas_m[20], Lessons mas
 Student inp_FIO_Stud();
 
 // Добавление к ученику урока
-int add_Less_to_Stud(Student& st, Lessons& ls);
+int add_Less_to_Stud(Student& st, Lessons ls);
 
 // Добавление к ученику урока и оценки
-int add_LM_to_Stud(Student& st, Lessons& ls, Mark& m);
+int add_LM_to_Stud(Student& st, Lessons ls, Mark m);
 
 // Добавление к ученику оценки к конкретному предмету
-int add_Mark_to_Stud(Student& st, Lessons& ls, Mark& m);
+int add_Mark_to_Stud(Student& st, Lessons ls, Mark m);
 
 // Вывод ученика
 // Передаем ученика и флаг для различного вывода уроков и оценок
