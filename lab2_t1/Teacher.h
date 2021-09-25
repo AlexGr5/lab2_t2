@@ -20,6 +20,11 @@ public:
     // Конструктор
     Teacher();
 
+    // Фун-ии получения данных из полей
+    string get_t_F();
+    string get_t_N();
+    string get_t_O();
+
     // Деструктор
     ~Teacher();
 
@@ -36,6 +41,6 @@ public:
     void out_Teach();
 
     // Расширение динамического массива
-    Teacher* Exten_mas(Teacher* old_mas);
+    Teacher* Exten_mas(Teacher* old_mas, int len, int difference);
 };
 

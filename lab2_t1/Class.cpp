@@ -9,7 +9,7 @@ Class_ null_c()
     cl.year = "";
     cl.i = 0;
     Student S;
-    S = null_s();
+    S.null_s();
     for (int i = 0; i < 32; i++)
     {
         cl.mas_Stud[i] = S;
@@ -27,7 +27,7 @@ Class_ init_c(string Name, string Year, Student* mas[32])
     cl.year = Year;
     cl.i = 0;
     Student S;
-    S = null_s();
+    S.null_s();
     for (int i = 0; i < 32; i++)
     {
         cl.mas_Stud[i] = *mas[i];
@@ -80,18 +80,18 @@ void out_Class_(Class_ cl, int fl_out)
     if (fl_out == 0)
     {
         int i = 0;
-        while (cl.mas_Stud[i].Fam != "")
+        while (cl.mas_Stud[i].get_s_F() != "")
         {
-            out_Stud(cl.mas_Stud[i], 0);
+            cl.mas_Stud[i].out_Stud(0);
             i++;
         }
     }
     else
     {
         int i = 0;
-        while (cl.mas_Stud[i].Fam != "")
+        while (cl.mas_Stud[i].get_s_F() != "")
         {
-            out_Stud(cl.mas_Stud[i], 1);
+            cl.mas_Stud[i].out_Stud(1);
             i++;
         }
     }
@@ -111,14 +111,14 @@ int Best_Stud_inClass(Class_ cl)
     int i = 0;
     int k = 0;
     int sum = 0;
-    while (cl.mas_Stud[i].Fam != "")
+    while (cl.mas_Stud[i].get_s_F() != "")
     {
         int j = 0;
         k = 0;
         sum = 0;
-        while (cl.mas_Stud[i].mas_Less[j].Name != "")
+        while (cl.mas_Stud[i].get_s_L()[j].get_l_N() != "")
         {
-            sum += cl.mas_Stud[i].mas_Marks[j].Value;
+            sum += cl.mas_Stud[i].get_s_M()[j].get_m();
             k++;
             j++;
         }
@@ -141,7 +141,7 @@ int Best_Stud_inClass(Class_ cl)
         for (int j = 0; j < i; j++)
         {
             if (mas_m[j] == maxM)
-                out_Stud(cl.mas_Stud[j], 1);
+                cl.mas_Stud[j].out_Stud(1);
         }
     }
 
@@ -162,14 +162,14 @@ int Bed_Stud_inClass(Class_ cl)
     int i = 0;
     int k = 0;
     int sum = 0;
-    while (cl.mas_Stud[i].Fam != "")
+    while (cl.mas_Stud[i].get_s_F() != "")
     {
         int j = 0;
         k = 0;
         sum = 0;
-        while (cl.mas_Stud[i].mas_Less[j].Name != "")
+        while (cl.mas_Stud[i].get_s_L()[j].get_l_N() != "")
         {
-            sum += cl.mas_Stud[i].mas_Marks[j].Value;
+            sum += cl.mas_Stud[i].get_s_M()[j].get_m();
             k++;
             j++;
         }
@@ -192,7 +192,7 @@ int Bed_Stud_inClass(Class_ cl)
         for (int j = 0; j < i; j++)
         {
             if (mas_m[j] == minM)
-                out_Stud(cl.mas_Stud[j], 1);
+                cl.mas_Stud[j].out_Stud(1);
         }
     }
 

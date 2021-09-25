@@ -8,6 +8,23 @@ Teacher::Teacher()
     Otch = "";
 }
 
+
+// Фун-ии получения данных из полей
+string Teacher::get_t_F()
+{
+    return this->Fam;
+}
+
+string Teacher::get_t_N()
+{
+    return this->Name;
+}
+
+string Teacher::get_t_O()
+{
+    return this->Otch;
+}
+
 // Инициализация структуры Учитель
 void Teacher::set_t(string Fam_s, string Name_s, string Otch_s)
 {
@@ -42,7 +59,7 @@ void Teacher::out_Teach()
 
 // Расширение динамического массива
 // Указатель на старый массив, длина старого массива, во сколько раз больше новый массив
-Teacher* Exten_mas(Teacher* old_mas, int len, int difference)
+Teacher* Teacher::Exten_mas(Teacher* old_mas, int len, int difference)
 {
     Teacher* point;
     if (len > 0)

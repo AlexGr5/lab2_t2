@@ -34,24 +34,24 @@ int main()
     Lessons Chem;
     Lessons* Biology = new Lessons;
 
-    Chem = init_l("");
-    *Biology = init_l("");
+    Chem.null_l();
+    (*Biology).null_l();
 
     cout << "Введите 2 урока:" << endl;
     cout << endl;
     cout << "Для учителя - ";
     t_Chem.out_Teach();
-    Chem = inp_Less(t_Chem);
+    Chem.inp_Less(t_Chem);
     cout << "Вывод:" << endl;
-    out_Less(Chem);
+    Chem.out_Less();
 
     cout << endl;
 
     cout << "Для учителя - ";
     (*t_Biology).out_Teach();
-    *Biology = inp_Less(*t_Biology);
+    Biology->inp_Less(*t_Biology);
     cout << "Вывод:" << endl;
-    out_Less(*Biology);
+    Biology->out_Less();
     cout << "===================================================" << endl;
 
     cout << endl;
@@ -62,25 +62,25 @@ int main()
     Student* st2 = new Student;
     Student st3;
 
-    st1 = null_s();
-    *st2 = null_s();
-    st3 = null_s();
+    st1.null_s();
+    (*st2).null_s();
+    st3.null_s();
 
     cout << "Введите 3 ученика:" << endl;
     cout << endl;
     cout << "Первый ученик:" << endl;
-    st1 = inp_FIO_Stud();
+    st1.inp_FIO_Stud();
 
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
     cout << endl;
-    out_Less(Chem);
+    Chem.out_Less();
     string str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (add_Less_to_Stud(st1, Chem))
+        if (st1.add_Less_to_Stud(Chem))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -88,11 +88,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr = init_m(0);
-            mr.Value = stoi(str);
-            if ((mr.Value >= 1) || (mr.Value <= 5))
+            mr.set_m(0);
+            mr.set_m(stoi(str));
+            if ((mr.get_m() >= 1) || (mr.get_m() <= 5))
             {
-                if (add_Mark_to_Stud(st1, Chem, mr))
+                if (st1.add_Mark_to_Stud(Chem, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -107,18 +107,18 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    out_Stud(st1, 1);
+    st1.out_Stud(1);
 
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
     cout << endl;
-    out_Less(*Biology);
+    Biology->out_Less();
     str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (add_Less_to_Stud(st1, *Biology))
+        if (st1.add_Less_to_Stud(*Biology))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -126,11 +126,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr = init_m(0);
-            mr.Value = stoi(str);
-            if ((mr.Value >= 1) || (mr.Value <= 5))
+            mr.set_m(0);
+            mr.set_m(stoi(str));
+            if ((mr.get_m() >= 1) || (mr.get_m() <= 5))
             {
-                if (add_Mark_to_Stud(st1, *Biology, mr))
+                if (st1.add_Mark_to_Stud(*Biology, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -145,20 +145,20 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    out_Stud(st1, 1);
+    st1.out_Stud(1);
 
     cout << endl;
     cout << "Второй ученик:" << endl;
-    *st2 = inp_FIO_Stud();
+    st2->inp_FIO_Stud();
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
-    out_Less(Chem);
+    Chem.out_Less();
     str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (add_Less_to_Stud(*st2, Chem))
+        if (st2->add_Less_to_Stud(Chem))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -166,11 +166,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr = init_m(0);
-            mr.Value = stoi(str);
-            if ((mr.Value >= 1) || (mr.Value <= 5))
+            mr.set_m(0);
+            mr.set_m(stoi(str));
+            if ((mr.get_m() >= 1) || (mr.get_m() <= 5))
             {
-                if (add_Mark_to_Stud(*st2, Chem, mr))
+                if ((*st2).add_Mark_to_Stud(Chem, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -185,18 +185,18 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    out_Stud(*st2, 1);
+    (*st2).out_Stud(1);
 
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
     cout << endl;
-    out_Less(*Biology);
+    (*Biology).out_Less();
     str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (add_Less_to_Stud(*st2, *Biology))
+        if (st2->add_Less_to_Stud(*Biology))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -204,11 +204,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr = init_m(0);
-            mr.Value = stoi(str);
-            if ((mr.Value >= 1) || (mr.Value <= 5))
+            mr.set_m(0);
+            mr.set_m(stoi(str));
+            if ((mr.get_m() >= 1) || (mr.get_m() <= 5))
             {
-                if (add_Mark_to_Stud(*st2, *Biology, mr))
+                if (st2->add_Mark_to_Stud(*Biology, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -223,20 +223,20 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    out_Stud(*st2, 1);
+    st2->out_Stud(1);
 
     cout << endl;
     cout << "Третий ученик:" << endl;
-    st3 = inp_FIO_Stud();
+    st3.inp_FIO_Stud();
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
-    out_Less(Chem);
+    Chem.out_Less();
     str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (add_Less_to_Stud(st3, Chem))
+        if (st3.add_Less_to_Stud(Chem))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -244,11 +244,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr = init_m(0);
-            mr.Value = stoi(str);
-            if ((mr.Value >= 1) || (mr.Value <= 5))
+            mr.set_m(0);
+            mr.set_m(stoi(str));
+            if ((mr.get_m() >= 1) || (mr.get_m() <= 5))
             {
-                if (add_Mark_to_Stud(st3, Chem, mr))
+                if (st3.add_Mark_to_Stud(Chem, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -263,18 +263,18 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    out_Stud(st3, 1);
+    st3.out_Stud(1);
 
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
     cout << endl;
-    out_Less(*Biology);
+    Biology->out_Less();
     str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (add_Less_to_Stud(st3, *Biology))
+        if (st3.add_Less_to_Stud(*Biology))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -282,11 +282,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr = init_m(0);
-            mr.Value = stoi(str);
-            if ((mr.Value >= 1) || (mr.Value <= 5))
+            mr.set_m(0);
+            mr.set_m(stoi(str));
+            if ((mr.get_m() >= 1) || (mr.get_m() <= 5))
             {
-                if (add_Mark_to_Stud(st3, *Biology, mr))
+                if (st3.add_Mark_to_Stud(*Biology, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -301,7 +301,7 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    out_Stud(st3, 1);
+    st3.out_Stud(1);
 
 
 
@@ -322,7 +322,7 @@ int main()
     cout << "Введите данные для первого класса" << endl;
     cl1 = inp_Class_();
     cout << endl;
-    out_Stud(st1, 1);
+    st1.out_Stud(1);
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
@@ -341,7 +341,7 @@ int main()
     cout << endl;
 
     cout << endl;
-    out_Stud(*st2, 1);
+    st2->out_Stud(1);
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
@@ -360,7 +360,7 @@ int main()
     cout << endl;
 
     cout << endl;
-    out_Stud(st3, 1);
+    st3.out_Stud(1);
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
@@ -389,7 +389,7 @@ int main()
     cout << "Введите данные для второго класса" << endl;
     *cl2 = inp_Class_();
     cout << endl;
-    out_Stud(st1, 1);
+    st1.out_Stud(1);
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
@@ -408,7 +408,7 @@ int main()
     cout << endl;
 
     cout << endl;
-    out_Stud(*st2, 1);
+    st2->out_Stud(1);
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
@@ -427,7 +427,7 @@ int main()
     cout << endl;
 
     cout << endl;
-    out_Stud(st3, 1);
+    st3.out_Stud(1);
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
@@ -481,24 +481,6 @@ int main()
 
     cout << "***************************************************" << endl;
 
-    cout << endl;
-    cout << endl;
-    cout << endl;
-
-    cout << "****Использование указателей на функцию в структуре Ученик (Student)****" << endl;
-
-    st1.P_func = hel1;
-    st1.P_func(st1);
-
-    cout << endl;
-    st1.P_func = hel2;
-    st1.P_func(st1);
-
-    cout << endl;
-    st1.P_func = hel3;
-    st1.P_func(st1);
-
-    cout << "***************************************************" << endl;
 
     delete& Chem;
     delete& t_Chem;
