@@ -1,5 +1,13 @@
 #include "Teacher.h"
 
+// Конструктор
+Teacher::Teacher()
+{
+    Fam = "";
+    Name = "";
+    Otch = "";
+}
+
 // Инициализация структуры Учитель
 void Teacher::set_t(string Fam_s, string Name_s, string Otch_s)
 {
@@ -14,7 +22,7 @@ Teacher Teacher::get_t()
     return *this;
 }
 
-// Ввод учителя, передаем адрес, где будет храниться информация
+// Ввод учителя
 void Teacher::inp_Teach()
 {
     cout << "Введите Фамилию учителя: ";
@@ -25,7 +33,7 @@ void Teacher::inp_Teach()
     cin >> Otch;
 }
 
-// Ввод учителя, передаем адрес, где будет храниться информация
+// Ввод учителя
 void Teacher::out_Teach()
 {
     cout << "ФИО учителя: " << Fam << " " << Name << " " << Otch << endl;
@@ -59,4 +67,10 @@ Teacher* Exten_mas(Teacher* old_mas, int len, int difference)
         point = old_mas;
 
     return point;
+}
+
+// Деструктор
+Teacher::~Teacher()
+{
+    delete this;
 }

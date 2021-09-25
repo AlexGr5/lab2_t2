@@ -1,33 +1,43 @@
 #include "Lesson.h"
 
-// Инициализация структуры Уроки
-Lessons init_l(string Name_Less)
+// Конструктор
+Lessons::Lessons()
 {
-    Lessons ls;
-    ls.Name = Name_Less;
-    Teacher t;
-    t = init_t("", "", "");
-    ls.Teach = t;
-
-    return ls;
+    this->Name = "";
+    this->Teach.set_t("", "", "");
 }
 
-// Ввод уроков, передаем адрес, где будет храниться информация и адрес учителя
-Lessons inp_Less(Teacher t)
+// Инициализация структуры Уроки
+void Lessons::set_l(string Name_Less, Teacher t)
 {
-    Lessons ls;
-    ls = init_l("");
-    cout << "Введите название предмета: ";
-    cin >> ls.Name;
-    cout << endl;
-    ls.Teach = t;
+    Name = Name_Less;
+    Teach = t;
+}
 
-    return ls;
+// Получение данных
+Lessons Lessons::get_l()
+{
+    return *this;
+}
+
+// Ввод названия урока
+void Lessons::inp_Less()
+{
+    cout << "Введите название предмета: ";
+    cin >> Name;
+    cout << endl;
+
 }
 
 // Вывод уроков, передаем адрес, где будет храниться информация
-void out_Less(Lessons ls)
+void Lessons::out_Less()
 {
-    cout << "Название предмета: " << ls.Name << endl;
-    out_Teach(ls.Teach);
+    cout << "Название предмета: " << Name << endl;
+    Teach.out_Teach();
+}
+
+// Деструктор
+Lessons::~Lessons()
+{
+    delete this;
 }
