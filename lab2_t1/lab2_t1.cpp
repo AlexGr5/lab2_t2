@@ -13,18 +13,18 @@ int main()
     Teacher t_Chem;
     Teacher* t_Biology = new Teacher;
 
-    t_Chem = init_t("", "", "");
-    *t_Biology = init_t("", "", "");
+    t_Chem.set_t("", "", "");
+    t_Biology->set_t("", "", "");
 
     cout << "Введите ФИО 2-ух учителей:" << endl;
     cout << endl;
-    t_Chem = inp_Teach();
-    out_Teach(t_Chem);
+    t_Chem.inp_Teach();
+    t_Chem.out_Teach();
 
     cout << endl;
 
-    *t_Biology = inp_Teach();
-    out_Teach(*t_Biology);
+    t_Biology->inp_Teach();
+    (*t_Biology).out_Teach();
     cout << "===================================================" << endl;
 
     cout << endl;
@@ -40,7 +40,7 @@ int main()
     cout << "Введите 2 урока:" << endl;
     cout << endl;
     cout << "Для учителя - ";
-    out_Teach(t_Chem);
+    t_Chem.out_Teach();
     Chem = inp_Less(t_Chem);
     cout << "Вывод:" << endl;
     out_Less(Chem);
@@ -48,7 +48,7 @@ int main()
     cout << endl;
 
     cout << "Для учителя - ";
-    out_Teach(*t_Biology);
+    (*t_Biology).out_Teach();
     *Biology = inp_Less(*t_Biology);
     cout << "Вывод:" << endl;
     out_Less(*Biology);
@@ -500,6 +500,15 @@ int main()
 
     cout << "***************************************************" << endl;
 
+    delete& Chem;
+    delete& t_Chem;
+    delete Biology;
+    delete t_Biology;
+    delete& st1;
+    delete st2;
+    delete& st3;
+    delete& cl1;
+    delete cl2;
 
     system("Pause");
 }

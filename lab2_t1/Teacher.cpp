@@ -1,34 +1,62 @@
 #include "Teacher.h"
 
 // Инициализация структуры Учитель
-Teacher init_t(string Fam, string Name, string Otch)
+void Teacher::set_t(string Fam_s, string Name_s, string Otch_s)
 {
-    Teacher t;
-    t.Fam = Fam;
-    t.Name = Name;
-    t.Otch = Otch;
+    Fam = Fam_s;
+    Name = Name_s;
+    Otch = Otch_s;
+}
 
-    return t;
+// Получение данных
+Teacher Teacher::get_t()
+{
+    return *this;
 }
 
 // Ввод учителя, передаем адрес, где будет храниться информация
-Teacher inp_Teach()
+void Teacher::inp_Teach()
 {
-    Teacher t;
-    t = init_t("", "", "");
     cout << "Введите Фамилию учителя: ";
-    cin >> t.Fam;
+    cin >> Fam;
     cout << "Введите имя учителя: ";
-    cin >> t.Name;
+    cin >> Name;
     cout << "Введите отчество учителя: ";
-    cin >> t.Otch;
-
-    return t;
+    cin >> Otch;
 }
 
 // Ввод учителя, передаем адрес, где будет храниться информация
-void out_Teach(Teacher t)
+void Teacher::out_Teach()
 {
-    cout << "ФИО учителя: " << t.Fam << " " << t.Name << " " << t.Otch << endl;
+    cout << "ФИО учителя: " << Fam << " " << Name << " " << Otch << endl;
 
+}
+
+// Расширение динамического массива
+// Указатель на старый массив, длина старого массива, во сколько раз больше новый массив
+Teacher* Exten_mas(Teacher* old_mas, int len, int difference)
+{
+    Teacher* point;
+    if (len > 0)
+    {
+        if (difference > 0)
+        {
+            Teacher* new_mas = new Teacher[len + difference];
+
+            for (int i = 0; i < (len); i++)
+            {
+                *new_mas = *old_mas;
+            }
+
+            delete[] old_mas;
+
+            point = new_mas;
+        }
+        else
+            point = old_mas;
+    }
+    else
+        point = old_mas;
+
+    return point;
 }
