@@ -510,5 +510,11 @@ int main()
     cout << "***************************************************" << endl;
 
     system("Pause");
+
+    delete t_Biology;
+    delete Biology;
+    delete st2;
+    delete cl2;
+    delete[] mas_s;
 }
 
