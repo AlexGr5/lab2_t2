@@ -41,6 +41,6 @@ public:
     void out_Teach();
 
     // Расширение динамического массива
-    Teacher* Exten_mas(Teacher* old_mas, int len, int difference);
+    Teacher* Exten_mas(Teacher* &old_mas, int len, int difference);
 };
 

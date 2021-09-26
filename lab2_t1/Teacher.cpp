@@ -59,7 +59,7 @@ void Teacher::out_Teach()
 
 // Расширение динамического массива
 // Указатель на старый массив, длина старого массива, во сколько раз больше новый массив
-Teacher* Teacher::Exten_mas(Teacher* old_mas, int len, int difference)
+Teacher* Teacher::Exten_mas(Teacher* &old_mas, int len, int difference)
 {
     Teacher* point;
     if (len > 0)
@@ -75,7 +75,8 @@ Teacher* Teacher::Exten_mas(Teacher* old_mas, int len, int difference)
 
             delete[] old_mas;
 
-            point = new_mas;
+            old_mas = new_mas;
+            point = old_mas;
         }
         else
             point = old_mas;
@@ -89,5 +90,5 @@ Teacher* Teacher::Exten_mas(Teacher* old_mas, int len, int difference)
 // Деструктор
 Teacher::~Teacher()
 {
-    delete this;
+    ;
 }

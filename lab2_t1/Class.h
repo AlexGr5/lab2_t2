@@ -50,5 +50,5 @@ public:
     int Bed_Stud_inClass();
 
     // Расширение динамического массива
-    Class_* Exten_Stud(Class_* old_mas, int len, int difference);
+    Class_* Exten_Stud(Class_* &old_mas, int len, int difference);
 };

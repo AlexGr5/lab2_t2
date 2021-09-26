@@ -224,7 +224,7 @@ int Class_::Bed_Stud_inClass()
 }
 
 // Расширение динамического массива
-Class_* Class_::Exten_Stud(Class_* old_mas, int len, int difference)
+Class_* Class_::Exten_Stud(Class_* &old_mas, int len, int difference)
 {
     Class_* point;
     if (len > 0)
@@ -240,7 +240,8 @@ Class_* Class_::Exten_Stud(Class_* old_mas, int len, int difference)
 
             delete[] old_mas;
 
-            point = new_mas;
+            old_mas = new_mas;
+            point = old_mas;
         }
         else
             point = old_mas;
@@ -254,5 +255,5 @@ Class_* Class_::Exten_Stud(Class_* old_mas, int len, int difference)
 // Деструктор
 Class_::~Class_()
 {
-    delete this;
+    ;
 }

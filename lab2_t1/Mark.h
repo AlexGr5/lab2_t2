@@ -26,7 +26,7 @@ public:
     void inp_Mark();
 
     // Фун-ия расширения динамического массива
-    Mark* Extern_Mark(Mark* old_mas, int len, int dif);
+    Mark* Extern_Mark(Mark* &old_mas, int len, int dif);
 
     // Вывод данных из структуры
     void out_Mark();

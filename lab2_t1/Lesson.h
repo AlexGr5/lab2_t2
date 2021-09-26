@@ -33,7 +33,7 @@ public:
     void inp_Less(Teacher t);
 
     // Фун-ия расширения динамического массива
-    Lessons* Extern_Less(Lessons* old_mas, int len, int dif);
+    Lessons* Extern_Less(Lessons* &old_mas, int len, int dif);
 
     // Вывод уроков
     void out_Less();

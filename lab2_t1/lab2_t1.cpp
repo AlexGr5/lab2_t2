@@ -481,16 +481,33 @@ int main()
 
     cout << "***************************************************" << endl;
 
+    cout << endl;
+    cout << endl;
+    cout << endl;
 
-    delete& Chem;
-    delete& t_Chem;
-    delete Biology;
-    delete t_Biology;
-    delete& st1;
-    delete st2;
-    delete& st3;
-    delete& cl1;
-    delete cl2;
+    cout << "*************************Динамический массив указателей класса Ученик**************************" << endl;
+
+    Student* mas_s = new Student[3];
+
+    mas_s[0] = st1;
+    mas_s[1] = *st2;
+    mas_s[2] = st3;
+
+    for (int i = 0; i < 3; i++)
+        mas_s[i].out_Stud(1);
+
+    Mark m1;
+    m1.set_m(5);
+
+    mas_s->Exten_Stud(mas_s, 3, 1);
+
+    mas_s[3].inp_FIO_Stud();
+    mas_s[3].add_Less_to_Stud(Chem);
+    mas_s[3].add_Mark_to_Stud(Chem, m1);
+
+    mas_s[3].out_Stud(1);
+
+    cout << "***************************************************" << endl;
 
     system("Pause");
 }

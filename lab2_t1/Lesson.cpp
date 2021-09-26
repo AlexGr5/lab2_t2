@@ -58,7 +58,7 @@ void Lessons::out_Less()
 
 // Расширение динамического массива
 // Указатель на старый массив, длина старого массива, во сколько раз больше новый массив
-Lessons* Lessons::Extern_Less(Lessons* old_mas, int len, int dif)
+Lessons* Lessons::Extern_Less(Lessons* &old_mas, int len, int dif)
 {
     Lessons* point;
     if (len > 0)
@@ -74,7 +74,8 @@ Lessons* Lessons::Extern_Less(Lessons* old_mas, int len, int dif)
 
             delete[] old_mas;
 
-            point = new_mas;
+            old_mas = new_mas;
+            point = old_mas;
         }
         else
             point = old_mas;
@@ -88,5 +89,5 @@ Lessons* Lessons::Extern_Less(Lessons* old_mas, int len, int dif)
 // Деструктор
 Lessons::~Lessons()
 {
-    delete this;
+    ;
 }

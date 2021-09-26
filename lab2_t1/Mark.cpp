@@ -36,7 +36,7 @@ void Mark::out_Mark()
 }
 
 // Фун-ия расширения динамического массива
-Mark* Mark::Extern_Mark(Mark* old_mas, int len, int dif)
+Mark* Mark::Extern_Mark(Mark* &old_mas, int len, int dif)
 {
     Mark* ls;
     if (len > 0)
@@ -52,7 +52,8 @@ Mark* Mark::Extern_Mark(Mark* old_mas, int len, int dif)
 
             delete[] old_mas;
 
-            ls = new_mas;
+            old_mas = new_mas;
+            ls = old_mas;
         }
         else
             ls = old_mas;
@@ -66,5 +67,5 @@ Mark* Mark::Extern_Mark(Mark* old_mas, int len, int dif)
 // Деструктор
 Mark::~Mark()
 {
-    delete this;
+    ;
 }

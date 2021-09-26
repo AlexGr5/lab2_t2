@@ -3,24 +3,22 @@
 // Конструктор
 Student::Student()
 {
-    Student st;
-
-    st.Fam = "";
-    st.Name = "";
-    st.Otch = "";
+    Fam = "";
+    Name = "";
+    Otch = "";
     Lessons L;
     Mark M;
     L.null_l();
     M.set_m(0);
-    st.i = 0;
+    i = 0;
     for (int i = 0; i < 20; i++)
     {
-        st.mas_Less[i] = L;
+        mas_Less[i] = L;
     }
 
     for (int i = 0; i < 20; i++)
     {
-        st.mas_Marks[i] = M;
+        mas_Marks[i] = M;
     }
 }
 
@@ -213,7 +211,7 @@ void Student::out_Stud(int fl_out)
 
 // Расширение динамического массива
 // Указатель на старый массив, длина старого массива, во сколько раз больше новый массив
-Student* Student::Exten_Stud(Student* old_mas, int len, int difference)
+Student* Student::Exten_Stud(Student* &old_mas, int len, int difference)
 {
     Student* point;
     if (len > 0)
@@ -229,7 +227,8 @@ Student* Student::Exten_Stud(Student* old_mas, int len, int difference)
 
             delete[] old_mas;
 
-            point = new_mas;
+            old_mas = new_mas;
+            point = old_mas;
         }
         else
             point = old_mas;
@@ -243,5 +242,5 @@ Student* Student::Exten_Stud(Student* old_mas, int len, int difference)
 // Деструктор
 Student::~Student()
 {
-    delete this;
+    ;
 }

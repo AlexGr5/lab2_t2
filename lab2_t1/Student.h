@@ -55,5 +55,5 @@ public:
     void out_Stud(int fl_out);
 
     // Расширение динамического массива
-    Student* Exten_Stud(Student* old_mas, int len, int difference);
+    Student* Exten_Stud(Student* &old_mas, int len, int difference);
 };
