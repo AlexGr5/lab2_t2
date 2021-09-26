@@ -3,7 +3,7 @@
 #include "Mark.h"
 
 // Структура Ученик
-struct Student
+class Student
 {
 private:
     string Fam = "";            // Фамилия

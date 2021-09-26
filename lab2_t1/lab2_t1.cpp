@@ -316,11 +316,11 @@ int main()
     Class_ cl1;
     Class_* cl2 = new Class_;
 
-    cl1 = null_c();
-    *cl2 = null_c();
+    cl1.null_c();
+    (*cl2).null_c();
 
     cout << "Введите данные для первого класса" << endl;
-    cl1 = inp_Class_();
+    cl1.inp_Class_();
     cout << endl;
     st1.out_Stud(1);
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
@@ -328,7 +328,7 @@ int main()
     cin >> str;
     if (str == "д")
     {
-        if (add_St_to_Cl(cl1, st1))
+        if (cl1.add_St_to_Cl(st1))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -347,7 +347,7 @@ int main()
     cin >> str;
     if (str == "д")
     {
-        if (add_St_to_Cl(cl1, *st2))
+        if (cl1.add_St_to_Cl(*st2))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -366,7 +366,7 @@ int main()
     cin >> str;
     if (str == "д")
     {
-        if (add_St_to_Cl(cl1, st3))
+        if (cl1.add_St_to_Cl(st3))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -379,7 +379,7 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод класаа №1" << endl;
-    out_Class_(cl1, 1);
+    cl1.out_Class_(1);
 
     cout << endl;
     cout << endl;
@@ -387,7 +387,7 @@ int main()
 
 
     cout << "Введите данные для второго класса" << endl;
-    *cl2 = inp_Class_();
+    cl2->inp_Class_();
     cout << endl;
     st1.out_Stud(1);
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
@@ -395,7 +395,7 @@ int main()
     cin >> str;
     if (str == "д")
     {
-        if (add_St_to_Cl(*cl2, st1))
+        if (cl2->add_St_to_Cl(st1))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -414,7 +414,7 @@ int main()
     cin >> str;
     if (str == "д")
     {
-        if (add_St_to_Cl(*cl2, *st2))
+        if ((*cl2).add_St_to_Cl(*st2))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -433,7 +433,7 @@ int main()
     cin >> str;
     if (str == "д")
     {
-        if (add_St_to_Cl(*cl2, st3))
+        if ((*cl2).add_St_to_Cl(st3))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -447,7 +447,7 @@ int main()
     cout << endl;
     cout << "Вывод класаа №2" << endl;
     cout << endl;
-    out_Class_(*cl2, 1);
+    (*cl2).out_Class_(1);
 
     cout << "===================================================" << endl;
 
@@ -458,11 +458,11 @@ int main()
     cout << "************************Функция поиска лучших учеников в классе***************************" << endl;
 
     cout << "Лучшие ученики класса №1:" << endl;
-    Best_Stud_inClass(cl1);
+    cl1.Best_Stud_inClass();
     cout << endl;
     cout << endl;
     cout << "Лучшие ученики класса №2:" << endl;
-    Best_Stud_inClass(*cl2);
+    (*cl2).Best_Stud_inClass();
 
     cout << "***************************************************" << endl;
 
@@ -473,11 +473,11 @@ int main()
     cout << "************************Функция поиска худших учеников в классе***************************" << endl;
 
     cout << "Худшие ученики класса №1:" << endl;
-    Bed_Stud_inClass(cl1);
+    cl1.Bed_Stud_inClass();
     cout << endl;
     cout << endl;
     cout << "Худшие ученики класса №2:" << endl;
-    Bed_Stud_inClass(*cl2);
+    cl2->Bed_Stud_inClass();
 
     cout << "***************************************************" << endl;
 
