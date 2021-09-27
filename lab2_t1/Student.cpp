@@ -81,14 +81,14 @@ Lessons* Student::get_s_L()
 // Инициализация структуры Ученик
 void Student::set_s(string Fam, string Name, string Otch, Mark mas_m[20], Lessons mas_l[20])
 {
-    Fam = Fam;
-    Name = Name;
-    Otch = Otch;
+    this->Fam = Fam;
+    this->Name = Name;
+    this->Otch = Otch;
     
     this->i = 0;
     
     int i = 0;
-    while (mas_Less[i].get_l_N() != "")
+    while (mas_l[i].get_l_N() != "")
     {
         mas_Less[i] = mas_l[i];
         i++;

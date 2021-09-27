@@ -28,9 +28,9 @@ string Teacher::get_t_O()
 // Инициализация структуры Учитель
 void Teacher::set_t(string Fam_s, string Name_s, string Otch_s)
 {
-    Fam = Fam_s;
-    Name = Name_s;
-    Otch = Otch_s;
+    this->Fam = Fam_s;
+    this->Name = Name_s;
+    this->Otch = Otch_s;
 }
 
 // Получение данных

@@ -31,9 +31,9 @@ void Class_::null_c()
 // Инициализация структуры Класс
 void Class_::set_c(string Name, string Year, Student* mas[32])
 {
-    Name = Name;
-    year = Year;
-    i = 0;
+    this->Name = Name;
+    this->year = Year;
+    this->i = 0;
     Student S;
     S.null_s();
     for (int i = 0; i < 32; i++)

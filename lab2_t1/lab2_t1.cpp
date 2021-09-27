@@ -9,7 +9,7 @@ int main()
     system("chcp 1251");
     system("cls");
 
-    cout << "========================Тест структуры Учитель===========================" << endl;
+    cout << "========================Тест класса Учитель===========================" << endl;
     Teacher t_Chem;
     Teacher* t_Biology = new Teacher;
 
@@ -30,7 +30,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    cout << "========================Тест структуры Уроки===========================" << endl;
+    cout << "========================Тест класса Уроки===========================" << endl;
     Lessons Chem;
     Lessons* Biology = new Lessons;
 
@@ -57,7 +57,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    cout << "=======================Тест структуры Ученик и Оценки============================" << endl;
+    cout << "=======================Тест класса Ученик и Оценки============================" << endl;
     Student st1;
     Student* st2 = new Student;
     Student st3;
@@ -310,7 +310,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    cout << "=======================Тест структуры Класс============================" << endl;
+    cout << "=======================Тест класса Класс============================" << endl;
     cout << "Создайте 2 класса учеников:" << endl;
     cout << endl;
     Class_ cl1;
@@ -529,9 +529,9 @@ int main()
         mas_L[i].set_l("Урок" + to_string(i), teach);
     }
 
-    Student* mas_s2[3];
+    Student* mas_s2[5];
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 5; i++)
     {
         mas_s2[i] = new Student;
         mas_s2[i]->set_s("Сидоров" + to_string(i), "Николай" + to_string(i), "Генадьевич" + to_string(i), mas_M, mas_L);
