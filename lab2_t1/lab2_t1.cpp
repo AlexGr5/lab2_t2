@@ -485,7 +485,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    cout << "*************************Динамический массив указателей класса Ученик**************************" << endl;
+    cout << "*************************Динамический массив объектов класса Ученик**************************" << endl;
 
     Student* mas_s = new Student[3];
 
@@ -506,6 +506,39 @@ int main()
     mas_s[3].add_Mark_to_Stud(Chem, m1);
 
     mas_s[3].out_Stud(1);
+
+    cout << "***************************************************" << endl;
+
+    cout << endl;
+    cout << endl;
+    cout << endl;
+
+    cout << "*************************Массив динамических объектов класса Ученик**************************" << endl;
+
+    Mark mas_M[20];
+    Lessons mas_L[20];
+    string Fam, Name, Otch;
+    Teacher teach;
+    for (int i = 0; i < 5; i++)
+    {
+        Fam = "Иванова" + to_string(i);
+        Name = "Марина" + to_string(i);
+        Otch = "Васильвна" + to_string(i);
+        teach.set_t(Fam, Name, Otch);
+        mas_M[i].set_m(4 + i % 2);
+        mas_L[i].set_l("Урок" + to_string(i), teach);
+    }
+
+    Student* mas_s2[3];
+
+    for (int i = 0; i < 3; i++)
+    {
+        mas_s2[i] = new Student;
+        mas_s2[i]->set_s("Сидоров" + to_string(i), "Николай" + to_string(i), "Генадьевич" + to_string(i), mas_M, mas_L);
+    }
+
+    for (int i = 0; i < 5; i++)
+        mas_s2[i]->out_Stud(1);
 
     cout << "***************************************************" << endl;
 
