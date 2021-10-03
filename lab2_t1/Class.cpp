@@ -68,14 +68,14 @@ void MyClass::InpNameYearMyClass()
 }
 
 // Добавление к классу ченика
-int MyClass::AddStudToMyClass(Student st)
+bool MyClass::AddStudToMyClass(Student st)
 {
-    int fl = 0;
+    bool fl = false;
     if (N < 20)
     {
         Students[N] = st;
         N++;
-        fl = 1;
+        fl = true;
     }
 
     return fl;

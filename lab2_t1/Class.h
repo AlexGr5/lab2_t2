@@ -33,7 +33,7 @@ public:
     void InpNameYearMyClass();
 
     // Добавление к классу ученика
-    int AddStudToMyClass(Student st);
+    bool AddStudToMyClass(Student st);
 
     // Выод данных из структуры Класс
     void DispMyClass();
