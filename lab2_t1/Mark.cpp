@@ -7,19 +7,19 @@ Mark::Mark()
 }
 
 // Инициализация структуры Оценка
-void Mark::set_m(int v)
+void Mark::SetMark(int v)
 {
     Value = v;
 }
 
 // Получение оценки
-int Mark::get_m()
+int Mark::GetMark()
 {
     return Value;
 }
 
 // Ввод данных в структуру Оценка
-void Mark::inp_Mark()
+void Mark::InpMark()
 {
     string mark;
     cout << "Введите оценку: ";
@@ -29,39 +29,10 @@ void Mark::inp_Mark()
 }
 
 // Вывод данных из структуры
-void Mark::out_Mark()
+void Mark::DispMark()
 {
     cout << "Оценка: " << Value << endl;
 
-}
-
-// Фун-ия расширения динамического массива
-Mark* Mark::Extern_Mark(Mark* &old_mas, int len, int dif)
-{
-    Mark* ls;
-    if (len > 0)
-    {
-        if (dif > 0)
-        {
-            Mark* new_mas = new Mark[len + dif];
-
-            for (int i = 0; i < (len); i++)
-            {
-                *new_mas = *old_mas;
-            }
-
-            delete[] old_mas;
-
-            old_mas = new_mas;
-            ls = old_mas;
-        }
-        else
-            ls = old_mas;
-    }
-    else
-        ls = old_mas;
-
-    return ls;
 }
 
 // Деструктор

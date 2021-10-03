@@ -6,103 +6,106 @@ Student::Student()
     Fam = "";
     Name = "";
     Otch = "";
-    Lessons L;
+    Lesson L;
     Mark M;
-    L.null_l();
-    M.set_m(0);
-    i = 0;
+    L.NullLess();
+    M.SetMark(0);
+    N = 0;
     for (int i = 0; i < 20; i++)
     {
-        mas_Less[i] = L;
+        Lessons[i] = L;
     }
 
     for (int i = 0; i < 20; i++)
     {
-        mas_Marks[i] = M;
+        Marks[i] = M;
     }
 }
 
 // Очищение всех полей структуры Ученик (Student)
-void Student::null_s()
+void Student::NullStud()
 {
 
     Fam = "";
     Name = "";
     Otch = "";
-    Lessons L;
+    Lesson L;
     Mark M;
-    L.null_l();
-    M.set_m(0);
-    this->i = 0;
+    L.NullLess();
+    M.SetMark(0);
+    this->N = 0;
     for (int i = 0; i < 20; i++)
     {
-        mas_Less[i] = L;
+        Lessons[i] = L;
     }
 
     for (int i = 0; i < 20; i++)
     {
-        mas_Marks[i] = M;
+        Marks[i] = M;
     }
 }
 
-// Функция получения
-Student Student::get_s()
-{
-    return *this;
-}
 
 // Функции получения значений полей
-string Student::get_s_F()
+string Student::GetFam()
 {
     return this->Fam;
 }
 
-string Student::get_s_N()
+string Student::GetName()
 {
     return this->Name;
 }
 
-string Student::get_s_O()
+string Student::GetOtch()
 {
     return this->Otch;
 }
 
-Mark* Student::get_s_M()
+Mark Student::GetMarkI(int i)
 {
-    return this->mas_Marks;
+    Mark m;
+    if (i < 20 && i > -1)
+        m = Marks[i];
+    
+    return m;
 }
 
-Lessons* Student::get_s_L()
+Lesson Student::GetLessI(int i)
 {
-    return this->mas_Less;
+    Lesson l;
+    if (i < 20 && i > -1)
+        l = Lessons[i];
+
+    return l;
 }
+
 
 
 // Инициализация структуры Ученик
-void Student::set_s(string Fam, string Name, string Otch, Mark mas_m[20], Lessons mas_l[20])
+void Student::SetStud(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess)
 {
     this->Fam = Fam;
     this->Name = Name;
     this->Otch = Otch;
     
-    this->i = 0;
+    this->N = 0;
     
     int i = 0;
-    while (mas_l[i].get_l_N() != "")
+    for ( i = 0; i < LenLess && i < 20; i++)
     {
-        mas_Less[i] = mas_l[i];
-        i++;
-        this->i++;
+        Lessons[i] = mas_l[i];
+        this->N++;
     }
 
-    for (int i = 0; i < this->i; i++)
+    for (int i = 0; i < LenMark && i < 20; i++)
     {
-        mas_Marks[i] = mas_m[i];
+        Marks[i] = mas_m[i];
     }
 }
 
 // Ввод ФИО ученика в структуру
-void Student::inp_FIO_Stud()
+void Student::InpStudFIO()
 {
     cout << "Введите Фамилию ученика: ";
     cin >> Fam;
@@ -114,16 +117,16 @@ void Student::inp_FIO_Stud()
 
 // Добавление к ученику урока
 // 0 - не удачно, 1 - удачно
-int Student::add_Less_to_Stud(Lessons ls)
+bool Student::AddLessToStud(Lesson ls)
 {
-    int fl = 0;
+    bool fl = false;
 
     for (int i = 0; (i < 20) && (fl == 0); i++)
     {
-        if (mas_Less[i].get_l_N() == "")
+        if (Lessons[i].GetName() == "")
         {
-            mas_Less[i] = ls;
-            fl = 1;
+            Lessons[i] = ls;
+            fl = true;
         }
     }
 
@@ -132,17 +135,17 @@ int Student::add_Less_to_Stud(Lessons ls)
 
 // Добавление к ученику урока и оценки
 // 0 - не удачно, 1 - удачно
-int Student::add_LM_to_Stud(Lessons ls, Mark m)
+bool Student::AddLMtoStud(Lesson ls, Mark m)
 {
-    int fl = 0;
+    bool fl = false;
 
     for (int i = 0; (i < 20) && (fl == 0); i++)
     {
-        if (mas_Less[i].get_l_N() == "")
+        if (Lessons[i].GetName() == "")
         {
-            mas_Less[i] = ls;
-            mas_Marks[i] = m;
-            fl = 1;
+            Lessons[i] = ls;
+            Marks[i] = m;
+            fl = true;
         }
     }
 
@@ -151,22 +154,22 @@ int Student::add_LM_to_Stud(Lessons ls, Mark m)
 
 // Добавление к ученику оценки к конкретному предмету
 // 0 - не удачно, 1 - удачно
-int Student::add_Mark_to_Stud(Lessons ls, Mark m)
+bool Student::AddMarkToStud(Lesson ls, Mark m)
 {
-    int fl = 0;
+    bool fl = false;
 
     for (int i = 0; (i < 20) && (fl == 0); i++)
     {
-        if (mas_Less[i].get_l_N() == ls.get_l_N())
+        if (Lessons[i].GetName() == ls.GetName())
         {
-            if (mas_Less[i].get_l_T().get_t_F() == ls.get_l_T().get_t_F())
+            if (Lessons[i].GetTeach().GetFam() == ls.GetTeach().GetFam())
             {
-                if (mas_Less[i].get_l_T().get_t_N() == ls.get_l_T().get_t_N())
+                if (Lessons[i].GetTeach().GetName() == ls.GetTeach().GetName())
                 {
-                    if (mas_Less[i].get_l_T().get_t_O() == ls.get_l_T().get_t_O())
+                    if (Lessons[i].GetTeach().GetOtch() == ls.GetTeach().GetOtch())
                     {
-                        mas_Marks[i] = m;
-                        fl = 1;
+                        Marks[i] = m;
+                        fl = true;
                     }
                 }
             }
@@ -179,64 +182,38 @@ int Student::add_Mark_to_Stud(Lessons ls, Mark m)
 // Вывод ученика
 // Передаем ученика и флаг для различного вывода уроков и оценок
 // fl_out (0 или 1)
-void Student::out_Stud(int fl_out)
+void Student::DispStud()
 {
     cout << "ФИО ученика: " << Fam << " " << Name << " " << Otch << endl;
 
-    if (fl_out == 0)
+    cout << "Уроки:" << endl;
+    int i = 0;
+    while (Lessons[i].GetName() != "")
     {
-        cout << "Уроки:" << endl;
-        for (int i = 0; i < 20; i++)
-        {
-            mas_Less[i].out_Less();
-        }
-        cout << "Оценки:" << endl;
-        for (int i = 0; i < 20; i++)
-        {
-            mas_Marks[i];
-        }
-    }
-    else
-    {
-        cout << "Уроки:" << endl;
-        int i = 0;
-        while (mas_Less[i].get_l_N() != "")
-        {
-            cout << " * " << mas_Less[i].get_l_N() << " * " << mas_Marks[i].get_m() << " * " << endl;
-            i++;
-        }
+        cout << " * " << Lessons[i].GetName() << " * " << Marks[i].GetMark() << " * " << endl;
+        i++;
     }
 }
 
 
-// Расширение динамического массива
-// Указатель на старый массив, длина старого массива, во сколько раз больше новый массив
-Student* Student::Exten_Stud(Student* &old_mas, int len, int difference)
+
+
+// Вывод ученика с всеми предметами, даже пустыми
+void Student::DispFullStud()
 {
-    Student* point;
-    if (len > 0)
+    cout << "ФИО ученика: " << Fam << " " << Name << " " << Otch << endl;
+
+
+    cout << "Уроки:" << endl;
+    for (int i = 0; i < 20; i++)
     {
-        if (difference > 0)
-        {
-            Student* new_mas = new Student[len + difference];
-
-            for (int i = 0; i < (len); i++)
-            {
-                *new_mas = *old_mas;
-            }
-
-            delete[] old_mas;
-
-            old_mas = new_mas;
-            point = old_mas;
-        }
-        else
-            point = old_mas;
+        Lessons[i].out_Less();
     }
-    else
-        point = old_mas;
-
-    return point;
+    cout << "Оценки:" << endl;
+    for (int i = 0; i < 20; i++)
+    {
+        Marks[i];
+    }
 }
 
 // Деструктор

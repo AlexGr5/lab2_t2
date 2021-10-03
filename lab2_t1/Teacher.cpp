@@ -10,37 +10,31 @@ Teacher::Teacher()
 
 
 // Фун-ии получения данных из полей
-string Teacher::get_t_F()
+string Teacher::GetFam()
 {
     return this->Fam;
 }
 
-string Teacher::get_t_N()
+string Teacher::GetName()
 {
     return this->Name;
 }
 
-string Teacher::get_t_O()
+string Teacher::GetOtch()
 {
     return this->Otch;
 }
 
 // Инициализация структуры Учитель
-void Teacher::set_t(string Fam_s, string Name_s, string Otch_s)
+void Teacher::SetTeach(string Fam_s, string Name_s, string Otch_s)
 {
     this->Fam = Fam_s;
     this->Name = Name_s;
     this->Otch = Otch_s;
 }
 
-// Получение данных
-Teacher Teacher::get_t()
-{
-    return *this;
-}
-
 // Ввод учителя
-void Teacher::inp_Teach()
+void Teacher::InpTeachFIO()
 {
     cout << "Введите Фамилию учителя: ";
     cin >> Fam;
@@ -51,40 +45,10 @@ void Teacher::inp_Teach()
 }
 
 // Ввод учителя
-void Teacher::out_Teach()
+void Teacher::DisplayTeach()
 {
     cout << "ФИО учителя: " << Fam << " " << Name << " " << Otch << endl;
 
-}
-
-// Расширение динамического массива
-// Указатель на старый массив, длина старого массива, во сколько раз больше новый массив
-Teacher* Teacher::Exten_mas(Teacher* &old_mas, int len, int difference)
-{
-    Teacher* point;
-    if (len > 0)
-    {
-        if (difference > 0)
-        {
-            Teacher* new_mas = new Teacher[len + difference];
-
-            for (int i = 0; i < (len); i++)
-            {
-                *new_mas = *old_mas;
-            }
-
-            delete[] old_mas;
-
-            old_mas = new_mas;
-            point = old_mas;
-        }
-        else
-            point = old_mas;
-    }
-    else
-        point = old_mas;
-
-    return point;
 }
 
 // Деструктор

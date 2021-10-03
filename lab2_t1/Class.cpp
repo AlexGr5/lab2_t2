@@ -1,90 +1,80 @@
 #include "Class.h"
 
 // Конструктор
-Class_::Class_()
+MyClass::MyClass()
 {
     Name = "";
-    year = "";
-    i = 0;
+    Year = "";
+    N = 0;
     Student S;
-    S.null_s();
+    S.NullStud();
     for (int i = 0; i < 32; i++)
     {
-        mas_Stud[i] = S;
+        Students[i] = S;
     }
 }
 
 // Очищение полей структуры Класс
-void Class_::null_c()
+void MyClass::NullMyClass()
 {
     Name = "";
-    year = "";
-    i = 0;
+    Year = "";
+    N = 0;
     Student S;
-    S.null_s();
+    S.NullStud();
     for (int i = 0; i < 32; i++)
     {
-        mas_Stud[i] = S;
+        Students[i] = S;
     }
 }
 
 // Инициализация структуры Класс
-void Class_::set_c(string Name, string Year, Student* mas[32])
+void MyClass::SetMyClass(string Name, string Year, Student mas[], int LenStud)
 {
     this->Name = Name;
-    this->year = Year;
-    this->i = 0;
+    this->Year = Year;
+    this->N = 0;
     Student S;
-    S.null_s();
-    for (int i = 0; i < 32; i++)
+    S.NullStud();
+    for (int i = 0; i < 32 && i < LenStud; i++)
     {
-        mas_Stud[i] = *mas[i];
+        Students[i] = mas[i];
     }
 }
 
 
-// Получение данных
-Class_ Class_::get_c()
-{
-    return *this;
-}
-
 // Функции получения значений полей
-string Class_::get_c_n()
+string MyClass::GetName()
 {
     return Name;
 }
 
-string Class_::get_c_y()
+string MyClass::GetYear()
 {
-    return year;
+    return Year;
 }
 
-Student* Class_::get_c_s()
-{
-    return mas_Stud;
-}
 
 
 // Ввод данных в структуру Класс
-void Class_::inp_Class_()
+void MyClass::InpNameYearMyClass()
 {
     cout << "Введите название класса: ";
     cin >> Name;
     cout << endl;
     cout << "Введите год обучения: ";
-    cin >> year;
+    cin >> Year;
     cout << endl;
 }
 
 // Добавление к классу ченика
-int Class_::add_St_to_Cl(Student st)
+int MyClass::AddStudToMyClass(Student st)
 {
     int fl = 0;
-    if (i < 20)
+    if (N < 20)
     {
-        mas_Stud[i] = st;
-        i++;
+        Students[N] = st;
+        N++;
         fl = 1;
     }
 
@@ -93,39 +83,44 @@ int Class_::add_St_to_Cl(Student st)
 
 // Вывод данных из структуры Класс
 // fl_out (0 или 1)
-void Class_::out_Class_(int fl_out)
+void MyClass::DispMyClass()
 {
 
     cout << "Название класса: " << Name << endl;;
-    cout << "Год обучения: " << year << endl;
+    cout << "Год обучения: " << Year << endl;
     cout << endl;
     cout << "Ученики:" << endl;
 
-    if (fl_out == 0)
+    int i = 0;
+    while (Students[i].GetFam() != "")
     {
-        int i = 0;
-        while (mas_Stud[i].get_s_F() != "")
-        {
-            mas_Stud[i].out_Stud(0);
-            i++;
-        }
+        Students[i].DispStud();
+        i++;
     }
-    else
+
+}
+
+// Выод всех данных из структуры Класс
+void MyClass::DispFullMyClass()
+{
+    cout << "Название класса: " << Name << endl;;
+    cout << "Год обучения: " << Year << endl;
+    cout << endl;
+    cout << "Ученики:" << endl;
+
+    int i = 0;
+    while (Students[i].GetFam() != "")
     {
-        int i = 0;
-        while (mas_Stud[i].get_s_F() != "")
-        {
-            mas_Stud[i].out_Stud(1);
-            i++;
-        }
+        Students[i].DispFullStud();
+        i++;
     }
 }
 
 // Функция по нахождению лучших учеников в классе
-int Class_::Best_Stud_inClass()
+bool MyClass::BestStudInMyClass()
 {
     double mas_m[32];
-    int exit = 0;
+    bool exit = false;
 
     for (int i = 0; i < 32; i++)
     {
@@ -135,14 +130,14 @@ int Class_::Best_Stud_inClass()
     int i = 0;
     int k = 0;
     int sum = 0;
-    while (mas_Stud[i].get_s_F() != "")
+    while (Students[i].GetFam() != "")
     {
         int j = 0;
         k = 0;
         sum = 0;
-        while (mas_Stud[i].get_s_L()[j].get_l_N() != "")
+        while (Students[i].GetLessI(j).GetName() != "")
         {
-            sum += mas_Stud[i].get_s_M()[j].get_m();
+            sum += Students[i].GetMarkI(j).GetMark();
             k++;
             j++;
         }
@@ -150,9 +145,7 @@ int Class_::Best_Stud_inClass()
         i++;
     }
 
-    if (i == 0)
-        exit = -1;
-    else
+    if (i > 0)
     {
         double maxM = 0;
         maxM = mas_m[0];
@@ -165,18 +158,20 @@ int Class_::Best_Stud_inClass()
         for (int j = 0; j < i; j++)
         {
             if (mas_m[j] == maxM)
-                mas_Stud[j].out_Stud(1);
+                Students[j].DispStud();
         }
+
+        exit = true;
     }
 
     return exit;
 }
 
 // Функция по нахождению худших учеников в классе
-int Class_::Bed_Stud_inClass()
+bool MyClass::BedStudInMyClass()
 {
     double mas_m[32];
-    int exit = 0;
+    bool exit = false;
 
     for (int i = 0; i < 32; i++)
     {
@@ -186,14 +181,14 @@ int Class_::Bed_Stud_inClass()
     int i = 0;
     int k = 0;
     int sum = 0;
-    while (mas_Stud[i].get_s_F() != "")
+    while (Students[i].GetFam() != "")
     {
         int j = 0;
         k = 0;
         sum = 0;
-        while (mas_Stud[i].get_s_L()[j].get_l_N() != "")
+        while (Students[i].GetLessI(j).GetName() != "")
         {
-            sum += mas_Stud[i].get_s_M()[j].get_m();
+            sum += Students[i].GetMarkI(j).GetMark();
             k++;
             j++;
         }
@@ -201,9 +196,7 @@ int Class_::Bed_Stud_inClass()
         i++;
     }
 
-    if (i == 0)
-        exit = -1;
-    else
+    if (i > 0)
     {
         double minM = 0;
         minM = mas_m[0];
@@ -216,44 +209,16 @@ int Class_::Bed_Stud_inClass()
         for (int j = 0; j < i; j++)
         {
             if (mas_m[j] == minM)
-                mas_Stud[j].out_Stud(1);
+                Students[j].DispStud();
         }
+        exit = true;
     }
 
     return exit;
 }
 
-// Расширение динамического массива
-Class_* Class_::Exten_Stud(Class_* &old_mas, int len, int difference)
-{
-    Class_* point;
-    if (len > 0)
-    {
-        if (difference > 0)
-        {
-            Class_* new_mas = new Class_[len + difference];
-
-            for (int i = 0; i < (len); i++)
-            {
-                *new_mas = *old_mas;
-            }
-
-            delete[] old_mas;
-
-            old_mas = new_mas;
-            point = old_mas;
-        }
-        else
-            point = old_mas;
-    }
-    else
-        point = old_mas;
-
-    return point;
-}
-
 // Деструктор
-Class_::~Class_()
+MyClass::~MyClass()
 {
     ;
 }

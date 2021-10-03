@@ -2,8 +2,8 @@
 
 #include "Teacher.h"
 
-// Структура Уроки
-class Lessons
+// Класс Уроки
+class Lesson
 {
 private:
     string Name = "";       // Название предмета
@@ -11,29 +11,23 @@ private:
 public:
 
     // Конструктор
-    Lessons();
+    Lesson();
 
     // Фун-ии получения данных из полей
-    string get_l_N();
-    Teacher get_l_T();
+    string GetName();
+    Teacher GetTeach();
 
     // Деструктор
-    ~Lessons();
+    ~Lesson();
 
     // Инициализация структуры Уроки
-    void set_l(string Name_Less, Teacher t);
-
-    // Получение данных
-    Lessons get_l();
+    void SetLess(string Name_Less, Teacher t);
 
     // Обнуление полей
-    void null_l();
+    void NullLess();
 
     // Ввод названия урока
-    void inp_Less(Teacher t);
-
-    // Фун-ия расширения динамического массива
-    Lessons* Extern_Less(Lessons* &old_mas, int len, int dif);
+    void InpLessName(Teacher t);
 
     // Вывод уроков
     void out_Less();

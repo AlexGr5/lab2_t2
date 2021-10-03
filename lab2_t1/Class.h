@@ -2,53 +2,49 @@
 
 #include "Student.h"
 
-// Структура Класс
-struct Class_
+// Класс Класс
+class MyClass
 {
 private:
     string Name = "";       // Название класса
-    string year = "";       // Год обучения
-    int i = 0;              // Текущее кол-во учеников
-    Student mas_Stud[32];   // Массив учеников
+    string Year = "";       // Год обучения
+    int N = 0;              // Текущее кол-во учеников
+    Student Students[32];   // Массив учеников
 
 public:
     
     // Конструктор
-    Class_();
+    MyClass();
 
     // Деструктор
-    ~Class_();
+    ~MyClass();
 
     // Очищение полей структуры Класс
-    void null_c();
+    void NullMyClass();
 
     // Инициализация структуры Класс
-    void set_c(string Name, string Year, Student* mas[32]);
-
-    // Получение данных
-    Class_ get_c();
+    void SetMyClass(string Name, string Year, Student mas[], int LenStud);
 
     // Функции получения значений полей
-    string get_c_n();
-    string get_c_y();
-    Student* get_c_s();
+    string GetName();
+    string GetYear();
 
     // Ввод данных в структуру Класс
-    void inp_Class_();
+    void InpNameYearMyClass();
 
     // Добавление к классу ученика
-    int add_St_to_Cl(Student st);
+    int AddStudToMyClass(Student st);
 
     // Выод данных из структуры Класс
-    // fl_out (0 или 1)
-    void out_Class_(int fl_out);
+    void DispMyClass();
+
+    // Выод всех данных из структуры Класс
+    void DispFullMyClass();
 
     // Функция по нахождению лучших учеников в классе
-    int Best_Stud_inClass();
+    bool BestStudInMyClass();
 
     // Функция по нахождению худших учеников в классе
-    int Bed_Stud_inClass();
+    bool BedStudInMyClass();
 
-    // Расширение динамического массива
-    Class_* Exten_Stud(Class_* &old_mas, int len, int difference);
 };

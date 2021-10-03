@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// Структура Учитель
+// Класс Учитель
 class Teacher
 {
 private:
@@ -21,26 +21,21 @@ public:
     Teacher();
 
     // Фун-ии получения данных из полей
-    string get_t_F();
-    string get_t_N();
-    string get_t_O();
+    string GetFam();
+    string GetName();
+    string GetOtch();
 
     // Деструктор
     ~Teacher();
 
     // Инициализация структуры Учитель
-    void set_t(string Fam, string Name, string Otch);
-
-    // Получение данных
-    Teacher get_t();
+    void SetTeach(string Fam, string Name, string Otch);
 
     // Ввод учителя
-    void inp_Teach();
+    void InpTeachFIO();
 
-    // Ввод учителя
-    void out_Teach();
+    // Ввод учителя на экран
+    void DisplayTeach();
 
-    // Расширение динамического массива
-    Teacher* Exten_mas(Teacher* &old_mas, int len, int difference);
 };
 

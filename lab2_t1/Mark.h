@@ -2,7 +2,7 @@
 
 #include "Lesson.h"
 
-// Структура Оценка
+// Класс Оценка
 class Mark
 {
 private:
@@ -17,18 +17,15 @@ public:
     ~Mark();
 
     // Инициализация структуры Оценка
-    void set_m(int v);
+    void SetMark(int v);
 
     // Получение оценки
-    int get_m();
+    int GetMark();
 
     // Ввод данных в структуру Оценка
-    void inp_Mark();
-
-    // Фун-ия расширения динамического массива
-    Mark* Extern_Mark(Mark* &old_mas, int len, int dif);
+    void InpMark();
 
     // Вывод данных из структуры
-    void out_Mark();
+    void DispMark();
 };
 

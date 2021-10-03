@@ -2,16 +2,16 @@
 
 #include "Mark.h"
 
-// Структура Ученик
+// Класс Ученик
 class Student
 {
 private:
     string Fam = "";            // Фамилия
     string Name = "";           // Имя
     string Otch = "";           // Отчество
-    Mark mas_Marks[20];         // Массив оценок
-    Lessons mas_Less[20];       // Массив уроков
-    int i = 0;                  // Текущее кол-во уроков
+    Mark Marks[20];             // Массив оценок
+    Lesson Lessons[20];         // Массив уроков
+    int N = 0;                  // Текущее кол-во уроков
 
 public:
 
@@ -21,39 +21,39 @@ public:
     // Деструктор
     ~Student();
 
-    // Функция получения
-    Student get_s();
-
     // Функции получения значений полей
-    string get_s_F();
-    string get_s_N();
-    string get_s_O();
-    Mark* get_s_M();
-    Lessons* get_s_L();
+    string GetFam();
+    string GetName();
+    string GetOtch();
+
+    // Возвращает оценку по индексу в массиве
+    Mark GetMarkI(int i);
+
+    // Возвращает урок по индексу в массиве
+    Lesson GetLessI(int i);
 
     // Очищение всех полей структуры Ученик (Student)
-   void null_s();
+   void NullStud();
 
     // Инициализация структуры Ученик
-    void set_s(string Fam, string Name, string Otch, Mark mas_m[20], Lessons mas_l[20]);
+    void SetStud(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess);
 
     // Ввод ФИО ученика в структуру
-    void inp_FIO_Stud();
+    void InpStudFIO();
 
     // Добавление к ученику урока
-    int add_Less_to_Stud(Lessons ls);
+    bool AddLessToStud(Lesson ls);
 
     // Добавление к ученику урока и оценки
-    int add_LM_to_Stud(Lessons ls, Mark m);
+    bool AddLMtoStud(Lesson ls, Mark m);
 
     // Добавление к ученику оценки к конкретному предмету
-    int add_Mark_to_Stud(Lessons ls, Mark m);
+    bool AddMarkToStud(Lesson ls, Mark m);
 
-    // Вывод ученика
-    // Передаем ученика и флаг для различного вывода уроков и оценок
-    // fl_out (0 или 1)
-    void out_Stud(int fl_out);
+    // Вывод ученика с предметами, которые у него есть
+    void DispStud();
 
-    // Расширение динамического массива
-    Student* Exten_Stud(Student* &old_mas, int len, int difference);
+    // Вывод ученика с всеми предметами, даже пустыми
+    void DispFullStud();
+
 };
