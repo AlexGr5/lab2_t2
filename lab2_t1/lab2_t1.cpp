@@ -13,18 +13,18 @@ int main()
     Teacher t_Chem;
     Teacher* t_Biology = new Teacher;
 
-    t_Chem.SetTeach("", "", "");
-    t_Biology->SetTeach("", "", "");
+    t_Chem.Set("", "", "");
+    t_Biology->Set("", "", "");
 
     cout << "Введите ФИО 2-ух учителей:" << endl;
     cout << endl;
-    t_Chem.InpTeachFIO();
-    t_Chem.DisplayTeach();
+    t_Chem.InpFIO();
+    t_Chem.DisplayInfo();
 
     cout << endl;
 
-    t_Biology->InpTeachFIO();
-    (*t_Biology).DisplayTeach();
+    t_Biology->InpFIO();
+    (*t_Biology).DisplayInfo();
     cout << "===================================================" << endl;
 
     cout << endl;
@@ -34,24 +34,24 @@ int main()
     Lesson Chem;
     Lesson* Biology = new Lesson;
 
-    Chem.NullLess();
-    (*Biology).NullLess();
+    Chem.Null();
+    (*Biology).Null();
 
     cout << "Введите 2 урока:" << endl;
     cout << endl;
     cout << "Для учителя - ";
-    t_Chem.DisplayTeach();
-    Chem.InpLessName(t_Chem);
+    t_Chem.DisplayInfo();
+    Chem.InpInConsol(t_Chem);
     cout << "Вывод:" << endl;
-    Chem.out_Less();
+    Chem.DisplayInfo();
 
     cout << endl;
 
     cout << "Для учителя - ";
-    (*t_Biology).DisplayTeach();
-    Biology->InpLessName(*t_Biology);
+    (*t_Biology).DisplayInfo();
+    Biology->InpInConsol(*t_Biology);
     cout << "Вывод:" << endl;
-    Biology->out_Less();
+    Biology->DisplayInfo();
     cout << "===================================================" << endl;
 
     cout << endl;
@@ -62,9 +62,9 @@ int main()
     Student* st2 = new Student;
     Student st3;
 
-    st1.NullStud();
-    (*st2).NullStud();
-    st3.NullStud();
+    st1.Null();
+    (*st2).Null();
+    st3.Null();
 
     cout << "Введите 3 ученика:" << endl;
     cout << endl;
@@ -74,13 +74,13 @@ int main()
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
     cout << endl;
-    Chem.out_Less();
+    Chem.DisplayInfo();
     string str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (st1.AddLessToStud(Chem))
+        if (st1.AddLess(Chem))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -88,11 +88,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr.SetMark(0);
-            mr.SetMark(stoi(str));
-            if ((mr.GetMark() >= 1) || (mr.GetMark() <= 5))
+            mr.Set(0);
+            mr.Set(stoi(str));
+            if ((mr.Get() >= 1) || (mr.Get() <= 5))
             {
-                if (st1.AddMarkToStud(Chem, mr))
+                if (st1.AddMark(Chem, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -107,18 +107,18 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    st1.DispStud();
+    st1.DisplayShortInfo();
 
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
     cout << endl;
-    Biology->out_Less();
+    Biology->DisplayInfo();
     str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (st1.AddLessToStud(*Biology))
+        if (st1.AddLess(*Biology))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -126,11 +126,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr.SetMark(0);
-            mr.SetMark(stoi(str));
-            if ((mr.GetMark() >= 1) || (mr.GetMark() <= 5))
+            mr.Set(0);
+            mr.Set(stoi(str));
+            if ((mr.Get() >= 1) || (mr.Get() <= 5))
             {
-                if (st1.AddMarkToStud(*Biology, mr))
+                if (st1.AddMark(*Biology, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -145,20 +145,20 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    st1.DispStud();
+    st1.DisplayShortInfo();
 
     cout << endl;
     cout << "Второй ученик:" << endl;
     st2->InpStudFIO();
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
-    Chem.out_Less();
+    Chem.DisplayInfo();
     str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (st2->AddLessToStud(Chem))
+        if (st2->AddLess(Chem))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -166,11 +166,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr.SetMark(0);
-            mr.SetMark(stoi(str));
-            if ((mr.GetMark() >= 1) || (mr.GetMark() <= 5))
+            mr.Set(0);
+            mr.Set(stoi(str));
+            if ((mr.Get() >= 1) || (mr.Get() <= 5))
             {
-                if ((*st2).AddMarkToStud(Chem, mr))
+                if ((*st2).AddMark(Chem, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -185,18 +185,18 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    (*st2).DispStud();
+    (*st2).DisplayShortInfo();
 
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
     cout << endl;
-    (*Biology).out_Less();
+    (*Biology).DisplayInfo();
     str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (st2->AddLessToStud(*Biology))
+        if (st2->AddLess(*Biology))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -204,11 +204,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr.SetMark(0);
-            mr.SetMark(stoi(str));
-            if ((mr.GetMark() >= 1) || (mr.GetMark() <= 5))
+            mr.Set(0);
+            mr.Set(stoi(str));
+            if ((mr.Get() >= 1) || (mr.Get() <= 5))
             {
-                if (st2->AddMarkToStud(*Biology, mr))
+                if (st2->AddMark(*Biology, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -223,20 +223,20 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    st2->DispStud();
+    st2->DisplayShortInfo();
 
     cout << endl;
     cout << "Третий ученик:" << endl;
     st3.InpStudFIO();
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
-    Chem.out_Less();
+    Chem.DisplayInfo();
     str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (st3.AddLessToStud(Chem))
+        if (st3.AddLess(Chem))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -244,11 +244,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr.SetMark(0);
-            mr.SetMark(stoi(str));
-            if ((mr.GetMark() >= 1) || (mr.GetMark() <= 5))
+            mr.Set(0);
+            mr.Set(stoi(str));
+            if ((mr.Get() >= 1) || (mr.Get() <= 5))
             {
-                if (st3.AddMarkToStud(Chem, mr))
+                if (st3.AddMark(Chem, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -263,18 +263,18 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    st3.DispStud();
+    st3.DisplayShortInfo();
 
     cout << endl;
     cout << "Выберите, какие уроки у первого ученика:" << endl;
     cout << endl;
-    Biology->out_Less();
+    Biology->DisplayInfo();
     str = "";
     cout << "Добавить этот предмет ученику? (д - добавить, другой набор символов - нет): ";
     cin >> str;
     if (str == "д")
     {
-        if (st3.AddLessToStud(*Biology))
+        if (st3.AddLess(*Biology))
         {
             cout << "Урок добавлен!" << endl;
             cout << endl;
@@ -282,11 +282,11 @@ int main()
             str = "";
             cin >> str;
             Mark mr;
-            mr.SetMark(0);
-            mr.SetMark(stoi(str));
-            if ((mr.GetMark() >= 1) || (mr.GetMark() <= 5))
+            mr.Set(0);
+            mr.Set(stoi(str));
+            if ((mr.Get() >= 1) || (mr.Get() <= 5))
             {
-                if (st3.AddMarkToStud(*Biology, mr))
+                if (st3.AddMark(*Biology, mr))
                     cout << "Оценка добавлена!" << endl;
                 else
                     cout << "Оценка не добавлена!" << endl;
@@ -301,7 +301,7 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод:" << endl;
-    st3.DispStud();
+    st3.DisplayShortInfo();
 
 
 
@@ -316,19 +316,19 @@ int main()
     MyClass cl1;
     MyClass* cl2 = new MyClass;
 
-    cl1.NullMyClass();
-    (*cl2).NullMyClass();
+    cl1.Null();
+    (*cl2).Null();
 
     cout << "Введите данные для первого класса" << endl;
-    cl1.InpNameYearMyClass();
+    cl1.InpNameYear();
     cout << endl;
-    st1.DispStud();
+    st1.DisplayShortInfo();
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
     if (str == "д")
     {
-        if (cl1.AddStudToMyClass(st1))
+        if (cl1.AddStud(st1))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -341,13 +341,13 @@ int main()
     cout << endl;
 
     cout << endl;
-    st2->DispStud();
+    st2->DisplayShortInfo();
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
     if (str == "д")
     {
-        if (cl1.AddStudToMyClass(*st2))
+        if (cl1.AddStud(*st2))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -360,13 +360,13 @@ int main()
     cout << endl;
 
     cout << endl;
-    st3.DispStud();
+    st3.DisplayShortInfo();
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
     if (str == "д")
     {
-        if (cl1.AddStudToMyClass(st3))
+        if (cl1.AddStud(st3))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -379,7 +379,7 @@ int main()
     cout << endl;
     cout << endl;
     cout << "Вывод класаа №1" << endl;
-    cl1.DispMyClass();
+    cl1.DisplayShortInfo();
 
     cout << endl;
     cout << endl;
@@ -387,15 +387,15 @@ int main()
 
 
     cout << "Введите данные для второго класса" << endl;
-    cl2->InpNameYearMyClass();
+    cl2->InpNameYear();
     cout << endl;
-    st1.DispStud();
+    st1.DisplayShortInfo();
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
     if (str == "д")
     {
-        if (cl2->AddStudToMyClass(st1))
+        if (cl2->AddStud(st1))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -408,13 +408,13 @@ int main()
     cout << endl;
 
     cout << endl;
-    st2->DispStud();
+    st2->DisplayShortInfo();
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
     if (str == "д")
     {
-        if ((*cl2).AddStudToMyClass(*st2))
+        if ((*cl2).AddStud(*st2))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -427,13 +427,13 @@ int main()
     cout << endl;
 
     cout << endl;
-    st3.DispStud();
+    st3.DisplayShortInfo();
     cout << "Добавить данного ученика в класс? (д - добавить, другой набор символов - нет): ";
     str = "";
     cin >> str;
     if (str == "д")
     {
-        if ((*cl2).AddStudToMyClass(st3))
+        if ((*cl2).AddStud(st3))
         {
             cout << "Ученик добавлен!" << endl;
             cout << endl;
@@ -447,7 +447,7 @@ int main()
     cout << endl;
     cout << "Вывод класаа №2" << endl;
     cout << endl;
-    (*cl2).DispMyClass();
+    (*cl2).DisplayShortInfo();
 
     cout << "===================================================" << endl;
 
@@ -458,11 +458,11 @@ int main()
     cout << "************************Функция поиска лучших учеников в классе***************************" << endl;
 
     cout << "Лучшие ученики класса №1:" << endl;
-    cl1.BestStudInMyClass();
+    cl1.BestStud();
     cout << endl;
     cout << endl;
     cout << "Лучшие ученики класса №2:" << endl;
-    (*cl2).BestStudInMyClass();
+    (*cl2).BestStud();
 
     cout << "***************************************************" << endl;
 
@@ -473,11 +473,11 @@ int main()
     cout << "************************Функция поиска худших учеников в классе***************************" << endl;
 
     cout << "Худшие ученики класса №1:" << endl;
-    cl1.BedStudInMyClass();
+    cl1.BedStud();
     cout << endl;
     cout << endl;
     cout << "Худшие ученики класса №2:" << endl;
-    cl2->BedStudInMyClass();
+    cl2->BedStud();
 
     cout << "***************************************************" << endl;
 
@@ -494,10 +494,10 @@ int main()
     mas_s[2] = st3;
 
     for (int i = 0; i < 3; i++)
-        mas_s[i].DispStud();
+        mas_s[i].DisplayShortInfo();
 
     Mark m1;
-    m1.SetMark(5);
+    m1.Set(5);
     cout << "***************************************************" << endl;
 
     cout << endl;
@@ -515,9 +515,9 @@ int main()
         Fam = "Иванова" + to_string(i);
         Name = "Марина" + to_string(i);
         Otch = "Васильвна" + to_string(i);
-        teach.SetTeach(Fam, Name, Otch);
-        mas_M[i].SetMark(4 + i % 2);
-        mas_L[i].SetLess("Урок" + to_string(i), teach);
+        teach.Set(Fam, Name, Otch);
+        mas_M[i].Set(4 + i % 2);
+        mas_L[i].Set("Урок" + to_string(i), teach);
     }
 
     Student* mas_s2[5];
@@ -525,11 +525,11 @@ int main()
     for (int i = 0; i < 5; i++)
     {
         mas_s2[i] = new Student;
-        mas_s2[i]->SetStud("Сидоров" + to_string(i), "Николай" + to_string(i), "Генадьевич" + to_string(i), mas_M, 20, mas_L, 20);
+        mas_s2[i]->Set("Сидоров" + to_string(i), "Николай" + to_string(i), "Генадьевич" + to_string(i), mas_M, 20, mas_L, 20);
     }
 
     for (int i = 0; i < 5; i++)
-        mas_s2[i]->DispStud();
+        mas_s2[i]->DisplayShortInfo();
 
     cout << "***************************************************" << endl;
 

@@ -3,42 +3,42 @@
 // Конструктор
 MyClass::MyClass()
 {
-    Name = "";
-    Year = "";
-    N = 0;
+    className = "";
+    yearOfStudy = "";
+    contStuds = 0;
     Student S;
-    S.NullStud();
+    S.Null();
     for (int i = 0; i < 32; i++)
     {
-        Students[i] = S;
+        students[i] = S;
     }
 }
 
 // Очищение полей структуры Класс
-void MyClass::NullMyClass()
+void MyClass::Null()
 {
-    Name = "";
-    Year = "";
-    N = 0;
+    className = "";
+    yearOfStudy = "";
+    contStuds = 0;
     Student S;
-    S.NullStud();
+    S.Null();
     for (int i = 0; i < 32; i++)
     {
-        Students[i] = S;
+        students[i] = S;
     }
 }
 
 // Инициализация структуры Класс
-void MyClass::SetMyClass(string Name, string Year, Student mas[], int LenStud)
+void MyClass::Set(string Name, string Year, Student mas[], int LenStud)
 {
-    this->Name = Name;
-    this->Year = Year;
-    this->N = 0;
+    this->className = Name;
+    this->yearOfStudy = Year;
+    this->contStuds = 0;
     Student S;
-    S.NullStud();
+    S.Null();
     for (int i = 0; i < 32 && i < LenStud; i++)
     {
-        Students[i] = mas[i];
+        students[i] = mas[i];
     }
 }
 
@@ -46,35 +46,35 @@ void MyClass::SetMyClass(string Name, string Year, Student mas[], int LenStud)
 // Функции получения значений полей
 string MyClass::GetName()
 {
-    return Name;
+    return className;
 }
 
 string MyClass::GetYear()
 {
-    return Year;
+    return yearOfStudy;
 }
 
 
 
 // Ввод данных в структуру Класс
-void MyClass::InpNameYearMyClass()
+void MyClass::InpNameYear()
 {
     cout << "Введите название класса: ";
-    cin >> Name;
+    cin >> className;
     cout << endl;
     cout << "Введите год обучения: ";
-    cin >> Year;
+    cin >> yearOfStudy;
     cout << endl;
 }
 
 // Добавление к классу ченика
-bool MyClass::AddStudToMyClass(Student st)
+bool MyClass::AddStud(Student st)
 {
     bool fl = false;
-    if (N < 20)
+    if (contStuds < 20)
     {
-        Students[N] = st;
-        N++;
+        students[contStuds] = st;
+        contStuds++;
         fl = true;
     }
 
@@ -83,41 +83,41 @@ bool MyClass::AddStudToMyClass(Student st)
 
 // Вывод данных из структуры Класс
 // fl_out (0 или 1)
-void MyClass::DispMyClass()
+void MyClass::DisplayShortInfo()
 {
 
-    cout << "Название класса: " << Name << endl;;
-    cout << "Год обучения: " << Year << endl;
+    cout << "Название класса: " << className << endl;;
+    cout << "Год обучения: " << yearOfStudy << endl;
     cout << endl;
     cout << "Ученики:" << endl;
 
     int i = 0;
-    while (Students[i].GetFam() != "")
+    while (students[i].GetFam() != "")
     {
-        Students[i].DispStud();
+        students[i].DisplayShortInfo();
         i++;
     }
 
 }
 
 // Выод всех данных из структуры Класс
-void MyClass::DispFullMyClass()
+void MyClass::DispFullInfo()
 {
-    cout << "Название класса: " << Name << endl;;
-    cout << "Год обучения: " << Year << endl;
+    cout << "Название класса: " << className << endl;;
+    cout << "Год обучения: " << yearOfStudy << endl;
     cout << endl;
     cout << "Ученики:" << endl;
 
     int i = 0;
-    while (Students[i].GetFam() != "")
+    while (students[i].GetFam() != "")
     {
-        Students[i].DispFullStud();
+        students[i].DispFullInfo();
         i++;
     }
 }
 
 // Функция по нахождению лучших учеников в классе
-bool MyClass::BestStudInMyClass()
+bool MyClass::BestStud()
 {
     double mas_m[32];
     bool exit = false;
@@ -130,14 +130,14 @@ bool MyClass::BestStudInMyClass()
     int i = 0;
     int k = 0;
     int sum = 0;
-    while (Students[i].GetFam() != "")
+    while (students[i].GetFam() != "")
     {
         int j = 0;
         k = 0;
         sum = 0;
-        while (Students[i].GetLessI(j).GetName() != "")
+        while (students[i].GetLessByNumber(j).GetNameLess() != "")
         {
-            sum += Students[i].GetMarkI(j).GetMark();
+            sum += students[i].GetMarkByNumber(j).Get();
             k++;
             j++;
         }
@@ -158,7 +158,7 @@ bool MyClass::BestStudInMyClass()
         for (int j = 0; j < i; j++)
         {
             if (mas_m[j] == maxM)
-                Students[j].DispStud();
+                students[j].DisplayShortInfo();
         }
 
         exit = true;
@@ -168,7 +168,7 @@ bool MyClass::BestStudInMyClass()
 }
 
 // Функция по нахождению худших учеников в классе
-bool MyClass::BedStudInMyClass()
+bool MyClass::BedStud()
 {
     double mas_m[32];
     bool exit = false;
@@ -181,14 +181,14 @@ bool MyClass::BedStudInMyClass()
     int i = 0;
     int k = 0;
     int sum = 0;
-    while (Students[i].GetFam() != "")
+    while (students[i].GetFam() != "")
     {
         int j = 0;
         k = 0;
         sum = 0;
-        while (Students[i].GetLessI(j).GetName() != "")
+        while (students[i].GetLessByNumber(j).GetNameLess() != "")
         {
-            sum += Students[i].GetMarkI(j).GetMark();
+            sum += students[i].GetMarkByNumber(j).Get();
             k++;
             j++;
         }
@@ -209,7 +209,7 @@ bool MyClass::BedStudInMyClass()
         for (int j = 0; j < i; j++)
         {
             if (mas_m[j] == minM)
-                Students[j].DispStud();
+                students[j].DisplayShortInfo();
         }
         exit = true;
     }

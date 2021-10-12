@@ -4,49 +4,49 @@
 Lesson::Lesson()
 {
     this->Name = "";
-    this->Teach.SetTeach("", "", "");
+    this->teacher.Set("", "", "");
 }
 
 // Инициализация структуры Уроки
-void Lesson::SetLess(string Name_Less, Teacher t)
+void Lesson::Set(string Name_Less, Teacher t)
 {
     Name = Name_Less;
-    Teach = t;
+    teacher = t;
 }
 
 // Обнуление полей
-void Lesson::NullLess()
+void Lesson::Null()
 {
     this->Name = "";
-    this->Teach.SetTeach("", "", "");
+    this->teacher.Set("", "", "");
 }
 
 // Фун-ии получения данных из полей
-string Lesson::GetName()
+string Lesson::GetNameLess()
 {
     return this->Name;
 }
 
-Teacher Lesson::GetTeach()
+Teacher Lesson::GetTeacher()
 {
-    return this->Teach;
+    return this->teacher;
 }
 
 // Ввод названия урока
-void Lesson::InpLessName(Teacher t)
+void Lesson::InpInConsol(Teacher t)
 {
     cout << "Введите название предмета: ";
     cin >> Name;
     cout << endl;
-    Teach = t;
+    teacher = t;
 
 }
 
 // Вывод уроков, передаем адрес, где будет храниться информация
-void Lesson::out_Less()
+void Lesson::DisplayInfo()
 {
     cout << "Название предмета: " << Name << endl;
-    Teach.DisplayTeach();
+    teacher.DisplayInfo();
 }
 
 

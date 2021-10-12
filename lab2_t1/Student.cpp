@@ -3,45 +3,45 @@
 // Конструктор
 Student::Student()
 {
-    Fam = "";
-    Name = "";
-    Otch = "";
+    fam = "";
+    name = "";
+    otch = "";
     Lesson L;
     Mark M;
-    L.NullLess();
-    M.SetMark(0);
-    N = 0;
+    L.Null();
+    M.Set(0);
+    countLess = 0;
     for (int i = 0; i < 20; i++)
     {
-        Lessons[i] = L;
+        lessons[i] = L;
     }
 
     for (int i = 0; i < 20; i++)
     {
-        Marks[i] = M;
+        marks[i] = M;
     }
 }
 
 // Очищение всех полей структуры Ученик (Student)
-void Student::NullStud()
+void Student::Null()
 {
 
-    Fam = "";
-    Name = "";
-    Otch = "";
+    fam = "";
+    name = "";
+    otch = "";
     Lesson L;
     Mark M;
-    L.NullLess();
-    M.SetMark(0);
-    this->N = 0;
+    L.Null();
+    M.Set(0);
+    this->countLess = 0;
     for (int i = 0; i < 20; i++)
     {
-        Lessons[i] = L;
+        lessons[i] = L;
     }
 
     for (int i = 0; i < 20; i++)
     {
-        Marks[i] = M;
+        marks[i] = M;
     }
 }
 
@@ -49,33 +49,33 @@ void Student::NullStud()
 // Функции получения значений полей
 string Student::GetFam()
 {
-    return this->Fam;
+    return this->fam;
 }
 
 string Student::GetName()
 {
-    return this->Name;
+    return this->name;
 }
 
 string Student::GetOtch()
 {
-    return this->Otch;
+    return this->otch;
 }
 
-Mark Student::GetMarkI(int i)
+Mark Student::GetMarkByNumber(int i)
 {
     Mark m;
     if (i < 20 && i > -1)
-        m = Marks[i];
+        m = marks[i];
     
     return m;
 }
 
-Lesson Student::GetLessI(int i)
+Lesson Student::GetLessByNumber(int i)
 {
     Lesson l;
     if (i < 20 && i > -1)
-        l = Lessons[i];
+        l = lessons[i];
 
     return l;
 }
@@ -83,24 +83,24 @@ Lesson Student::GetLessI(int i)
 
 
 // Инициализация структуры Ученик
-void Student::SetStud(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess)
+void Student::Set(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess)
 {
-    this->Fam = Fam;
-    this->Name = Name;
-    this->Otch = Otch;
+    this->fam = Fam;
+    this->name = Name;
+    this->otch = Otch;
     
-    this->N = 0;
+    this->countLess = 0;
     
     int i = 0;
     for ( i = 0; i < LenLess && i < 20; i++)
     {
-        Lessons[i] = mas_l[i];
-        this->N++;
+        lessons[i] = mas_l[i];
+        this->countLess++;
     }
 
     for (int i = 0; i < LenMark && i < 20; i++)
     {
-        Marks[i] = mas_m[i];
+        marks[i] = mas_m[i];
     }
 }
 
@@ -108,24 +108,24 @@ void Student::SetStud(string Fam, string Name, string Otch, Mark mas_m[], int Le
 void Student::InpStudFIO()
 {
     cout << "Введите Фамилию ученика: ";
-    cin >> Fam;
+    cin >> fam;
     cout << "Введите Имя ученика: ";
-    cin >> Name;
+    cin >> name;
     cout << "Введите Отчество ученика: ";
-    cin >> Otch;
+    cin >> otch;
 }
 
 // Добавление к ученику урока
 // 0 - не удачно, 1 - удачно
-bool Student::AddLessToStud(Lesson ls)
+bool Student::AddLess(Lesson ls)
 {
     bool fl = false;
 
     for (int i = 0; (i < 20) && (fl == 0); i++)
     {
-        if (Lessons[i].GetName() == "")
+        if (lessons[i].GetNameLess() == "")
         {
-            Lessons[i] = ls;
+            lessons[i] = ls;
             fl = true;
         }
     }
@@ -135,16 +135,16 @@ bool Student::AddLessToStud(Lesson ls)
 
 // Добавление к ученику урока и оценки
 // 0 - не удачно, 1 - удачно
-bool Student::AddLMtoStud(Lesson ls, Mark m)
+bool Student::AddLessAndMark(Lesson ls, Mark m)
 {
     bool fl = false;
 
     for (int i = 0; (i < 20) && (fl == 0); i++)
     {
-        if (Lessons[i].GetName() == "")
+        if (lessons[i].GetNameLess() == "")
         {
-            Lessons[i] = ls;
-            Marks[i] = m;
+            lessons[i] = ls;
+            marks[i] = m;
             fl = true;
         }
     }
@@ -154,21 +154,21 @@ bool Student::AddLMtoStud(Lesson ls, Mark m)
 
 // Добавление к ученику оценки к конкретному предмету
 // 0 - не удачно, 1 - удачно
-bool Student::AddMarkToStud(Lesson ls, Mark m)
+bool Student::AddMark(Lesson ls, Mark m)
 {
     bool fl = false;
 
     for (int i = 0; (i < 20) && (fl == 0); i++)
     {
-        if (Lessons[i].GetName() == ls.GetName())
+        if (lessons[i].GetNameLess() == ls.GetNameLess())
         {
-            if (Lessons[i].GetTeach().GetFam() == ls.GetTeach().GetFam())
+            if (lessons[i].GetTeacher().GetFam() == ls.GetTeacher().GetFam())
             {
-                if (Lessons[i].GetTeach().GetName() == ls.GetTeach().GetName())
+                if (lessons[i].GetTeacher().GetName() == ls.GetTeacher().GetName())
                 {
-                    if (Lessons[i].GetTeach().GetOtch() == ls.GetTeach().GetOtch())
+                    if (lessons[i].GetTeacher().GetOtch() == ls.GetTeacher().GetOtch())
                     {
-                        Marks[i] = m;
+                        marks[i] = m;
                         fl = true;
                     }
                 }
@@ -182,15 +182,15 @@ bool Student::AddMarkToStud(Lesson ls, Mark m)
 // Вывод ученика
 // Передаем ученика и флаг для различного вывода уроков и оценок
 // fl_out (0 или 1)
-void Student::DispStud()
+void Student::DisplayShortInfo()
 {
-    cout << "ФИО ученика: " << Fam << " " << Name << " " << Otch << endl;
+    cout << "ФИО ученика: " << fam << " " << name << " " << otch << endl;
 
     cout << "Уроки:" << endl;
     int i = 0;
-    while (Lessons[i].GetName() != "")
+    while (lessons[i].GetNameLess() != "")
     {
-        cout << " * " << Lessons[i].GetName() << " * " << Marks[i].GetMark() << " * " << endl;
+        cout << " * " << lessons[i].GetNameLess() << " * " << marks[i].Get() << " * " << endl;
         i++;
     }
 }
@@ -199,20 +199,20 @@ void Student::DispStud()
 
 
 // Вывод ученика с всеми предметами, даже пустыми
-void Student::DispFullStud()
+void Student::DispFullInfo()
 {
-    cout << "ФИО ученика: " << Fam << " " << Name << " " << Otch << endl;
+    cout << "ФИО ученика: " << fam << " " << name << " " << otch << endl;
 
 
     cout << "Уроки:" << endl;
     for (int i = 0; i < 20; i++)
     {
-        Lessons[i].out_Less();
+        lessons[i].DisplayInfo();
     }
     cout << "Оценки:" << endl;
     for (int i = 0; i < 20; i++)
     {
-        Marks[i];
+        marks[i];
     }
 }
 

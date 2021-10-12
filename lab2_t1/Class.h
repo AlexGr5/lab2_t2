@@ -6,10 +6,10 @@
 class MyClass
 {
 private:
-    string Name = "";       // Название класса
-    string Year = "";       // Год обучения
-    int N = 0;              // Текущее кол-во учеников
-    Student Students[32];   // Массив учеников
+    string className = "";          // Название класса
+    string yearOfStudy = "";        // Год обучения
+    int contStuds = 0;              // Текущее кол-во учеников
+    Student students[32];           // Массив учеников
 
 public:
     
@@ -20,31 +20,31 @@ public:
     ~MyClass();
 
     // Очищение полей структуры Класс
-    void NullMyClass();
+    void Null();
 
     // Инициализация структуры Класс
-    void SetMyClass(string Name, string Year, Student mas[], int LenStud);
+    void Set(string Name, string Year, Student mas[], int LenStud);
 
     // Функции получения значений полей
     string GetName();
     string GetYear();
 
     // Ввод данных в структуру Класс
-    void InpNameYearMyClass();
+    void InpNameYear();
 
     // Добавление к классу ученика
-    bool AddStudToMyClass(Student st);
+    bool AddStud(Student st);
 
     // Выод данных из структуры Класс
-    void DispMyClass();
+    void DisplayShortInfo();
 
     // Выод всех данных из структуры Класс
-    void DispFullMyClass();
+    void DispFullInfo();
 
     // Функция по нахождению лучших учеников в классе
-    bool BestStudInMyClass();
+    bool BestStud();
 
     // Функция по нахождению худших учеников в классе
-    bool BedStudInMyClass();
+    bool BedStud();
 
 };

@@ -6,7 +6,7 @@
 class Mark
 {
 private:
-    int Value = 0;          // Оценка
+    int value = 0;          // Оценка
 
 public:
 
@@ -17,15 +17,15 @@ public:
     ~Mark();
 
     // Инициализация структуры Оценка
-    void SetMark(int v);
+    void Set(int v);
 
     // Получение оценки
-    int GetMark();
+    int Get();
 
     // Ввод данных в структуру Оценка
     void InpMark();
 
     // Вывод данных из структуры
-    void DispMark();
+    void DisplayValue();
 };
 

@@ -6,29 +6,29 @@
 class Lesson
 {
 private:
-    string Name = "";       // Название предмета
-    Teacher Teach;          // Учитель
+    string nameLesson = "";       // Название предмета
+    Teacher teacher;              // Учитель
 public:
 
     // Конструктор
     Lesson();
 
     // Фун-ии получения данных из полей
-    string GetName();
-    Teacher GetTeach();
+    string GetNameLess();
+    Teacher GetTeacher();
 
     // Деструктор
     ~Lesson();
 
     // Инициализация структуры Уроки
-    void SetLess(string Name_Less, Teacher t);
+    void Set(string Name_Less, Teacher t);
 
     // Обнуление полей
-    void NullLess();
+    void Null();
 
     // Ввод названия урока
-    void InpLessName(Teacher t);
+    void InpInConsol(Teacher t);
 
     // Вывод уроков
-    void out_Less();
+    void DisplayInfo();
 };

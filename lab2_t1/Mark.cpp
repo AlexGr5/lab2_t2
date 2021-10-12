@@ -3,19 +3,19 @@
 // Конструктор
 Mark::Mark()
 {
-    Value = 0;
+    value = 0;
 }
 
 // Инициализация структуры Оценка
-void Mark::SetMark(int v)
+void Mark::Set(int v)
 {
-    Value = v;
+    value = v;
 }
 
 // Получение оценки
-int Mark::GetMark()
+int Mark::Get()
 {
-    return Value;
+    return value;
 }
 
 // Ввод данных в структуру Оценка
@@ -24,14 +24,14 @@ void Mark::InpMark()
     string mark;
     cout << "Введите оценку: ";
     cin >> mark;
-    Value = stoi(mark);
+    value = stoi(mark);
     cout << endl;
 }
 
 // Вывод данных из структуры
-void Mark::DispMark()
+void Mark::DisplayValue()
 {
-    cout << "Оценка: " << Value << endl;
+    cout << "Оценка: " << value << endl;
 
 }
 

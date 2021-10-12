@@ -3,51 +3,51 @@
 // Конструктор
 Teacher::Teacher()
 {
-    Fam = "";
-    Name = "";
-    Otch = "";
+    fam = "";
+    name = "";
+    otch = "";
 }
 
 
 // Фун-ии получения данных из полей
 string Teacher::GetFam()
 {
-    return this->Fam;
+    return this->fam;
 }
 
 string Teacher::GetName()
 {
-    return this->Name;
+    return this->name;
 }
 
 string Teacher::GetOtch()
 {
-    return this->Otch;
+    return this->otch;
 }
 
 // Инициализация структуры Учитель
-void Teacher::SetTeach(string Fam_s, string Name_s, string Otch_s)
+void Teacher::Set(string Fam_s, string Name_s, string Otch_s)
 {
-    this->Fam = Fam_s;
-    this->Name = Name_s;
-    this->Otch = Otch_s;
+    this->fam = Fam_s;
+    this->name = Name_s;
+    this->otch = Otch_s;
 }
 
 // Ввод учителя
-void Teacher::InpTeachFIO()
+void Teacher::InpFIO()
 {
     cout << "Введите Фамилию учителя: ";
-    cin >> Fam;
+    cin >> fam;
     cout << "Введите имя учителя: ";
-    cin >> Name;
+    cin >> name;
     cout << "Введите отчество учителя: ";
-    cin >> Otch;
+    cin >> otch;
 }
 
 // Ввод учителя
-void Teacher::DisplayTeach()
+void Teacher::DisplayInfo()
 {
-    cout << "ФИО учителя: " << Fam << " " << Name << " " << Otch << endl;
+    cout << "ФИО учителя: " << fam << " " << name << " " << otch << endl;
 
 }
 

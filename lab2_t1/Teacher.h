@@ -11,9 +11,9 @@ using namespace std;
 class Teacher
 {
 private:
-    string Fam = "";        // Фамилия
-    string Name = "";       // Имя
-    string Otch = "";       // Отчество
+    string fam = "";        // Фамилия
+    string name = "";       // Имя
+    string otch = "";       // Отчество
 
 public:
 
@@ -29,13 +29,13 @@ public:
     ~Teacher();
 
     // Инициализация структуры Учитель
-    void SetTeach(string Fam, string Name, string Otch);
+    void Set(string Fam, string Name, string Otch);
 
     // Ввод учителя
-    void InpTeachFIO();
+    void InpFIO();
 
     // Ввод учителя на экран
-    void DisplayTeach();
+    void DisplayInfo();
 
 };
 

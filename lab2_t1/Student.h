@@ -6,12 +6,12 @@
 class Student
 {
 private:
-    string Fam = "";            // Фамилия
-    string Name = "";           // Имя
-    string Otch = "";           // Отчество
-    Mark Marks[20];             // Массив оценок
-    Lesson Lessons[20];         // Массив уроков
-    int N = 0;                  // Текущее кол-во уроков
+    string fam = "";            // Фамилия
+    string name = "";           // Имя
+    string otch = "";           // Отчество
+    Mark marks[20];             // Массив оценок
+    Lesson lessons[20];         // Массив уроков
+    int countLess = 0;          // Текущее кол-во уроков
 
 public:
 
@@ -27,33 +27,33 @@ public:
     string GetOtch();
 
     // Возвращает оценку по индексу в массиве
-    Mark GetMarkI(int i);
+    Mark GetMarkByNumber(int i);
 
     // Возвращает урок по индексу в массиве
-    Lesson GetLessI(int i);
+    Lesson GetLessByNumber(int i);
 
     // Очищение всех полей структуры Ученик (Student)
-   void NullStud();
+   void Null();
 
     // Инициализация структуры Ученик
-    void SetStud(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess);
+    void Set(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess);
 
     // Ввод ФИО ученика в структуру
     void InpStudFIO();
 
     // Добавление к ученику урока
-    bool AddLessToStud(Lesson ls);
+    bool AddLess(Lesson ls);
 
     // Добавление к ученику урока и оценки
-    bool AddLMtoStud(Lesson ls, Mark m);
+    bool AddLessAndMark(Lesson ls, Mark m);
 
     // Добавление к ученику оценки к конкретному предмету
-    bool AddMarkToStud(Lesson ls, Mark m);
+    bool AddMark(Lesson ls, Mark m);
 
     // Вывод ученика с предметами, которые у него есть
-    void DispStud();
+    void DisplayShortInfo();
 
     // Вывод ученика с всеми предметами, даже пустыми
-    void DispFullStud();
+    void DispFullInfo();
 
 };
