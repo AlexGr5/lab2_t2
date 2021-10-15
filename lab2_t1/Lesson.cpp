@@ -3,28 +3,28 @@
 // Конструктор
 Lesson::Lesson()
 {
-    this->Name = "";
+    this->nameLesson = "";
     this->teacher.Set("", "", "");
 }
 
 // Инициализация структуры Уроки
 void Lesson::Set(string Name_Less, Teacher t)
 {
-    Name = Name_Less;
+    nameLesson = Name_Less;
     teacher = t;
 }
 
 // Обнуление полей
 void Lesson::Null()
 {
-    this->Name = "";
+    this->nameLesson = "";
     this->teacher.Set("", "", "");
 }
 
 // Фун-ии получения данных из полей
 string Lesson::GetNameLess()
 {
-    return this->Name;
+    return this->nameLesson;
 }
 
 Teacher Lesson::GetTeacher()
@@ -36,7 +36,7 @@ Teacher Lesson::GetTeacher()
 void Lesson::InpInConsol(Teacher t)
 {
     cout << "Введите название предмета: ";
-    cin >> Name;
+    cin >> nameLesson;
     cout << endl;
     teacher = t;
 
@@ -45,7 +45,7 @@ void Lesson::InpInConsol(Teacher t)
 // Вывод уроков, передаем адрес, где будет храниться информация
 void Lesson::DisplayInfo()
 {
-    cout << "Название предмета: " << Name << endl;
+    cout << "Название предмета: " << nameLesson << endl;
     teacher.DisplayInfo();
 }
 
