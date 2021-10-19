@@ -25,7 +25,7 @@ string Teacher::GetOtch()
     return this->otch;
 }
 
-// Инициализация структуры Учитель
+// Инициализация класса Учитель
 void Teacher::Set(string Fam_s, string Name_s, string Otch_s)
 {
     this->fam = Fam_s;

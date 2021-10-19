@@ -7,7 +7,7 @@ Lesson::Lesson()
     this->teacher.Set("", "", "");
 }
 
-// Инициализация структуры Уроки
+// Инициализация класса Уроки
 void Lesson::Set(string Name_Less, Teacher t)
 {
     nameLesson = Name_Less;
