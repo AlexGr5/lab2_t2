@@ -10,17 +10,17 @@ Teacher::Teacher()
 
 
 // Фун-ии получения данных из полей
-string Teacher::GetFam()
+string& Teacher::GetFam()
 {
     return this->fam;
 }
 
-string Teacher::GetName()
+string& Teacher::GetName()
 {
     return this->name;
 }
 
-string Teacher::GetOtch()
+string& Teacher::GetOtch()
 {
     return this->otch;
 }

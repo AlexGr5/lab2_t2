@@ -137,7 +137,7 @@ bool MyClass::BestStud()
         sum = 0;
         while (students[i].GetLessByNumber(j).GetNameLess() != "")
         {
-            sum += students[i].GetMarkByNumber(j).Get();
+            sum += *students[i].GetMarkByNumber(j).Get();
             k++;
             j++;
         }
@@ -188,7 +188,7 @@ bool MyClass::BedStud()
         sum = 0;
         while (students[i].GetLessByNumber(j).GetNameLess() != "")
         {
-            sum += students[i].GetMarkByNumber(j).Get();
+            sum += *students[i].GetMarkByNumber(j).Get();
             k++;
             j++;
         }

@@ -21,9 +21,9 @@ public:
     Teacher();
 
     // Фун-ии получения данных из полей
-    string GetFam();
-    string GetName();
-    string GetOtch();
+    string& GetFam();
+    string& GetName();
+    string& GetOtch();
 
     // Деструктор
     ~Teacher();

@@ -8,10 +8,17 @@ class Mark
 private:
     int value = 0;          // Оценка
 
+    static Mark* lastMark;  // Адрес проследнего эл-та списка
+    Mark* prev;             // На предыдущий элемент списка
+    Mark* next;             // На следующий элемент списка
+
 public:
 
     // Конструктор
     Mark();
+
+    // Конструктор
+    Mark(int value);
 
     // Деструктор
     ~Mark();
@@ -20,12 +27,18 @@ public:
     void Set(int v);
 
     // Получение оценки
-    int Get();
+    int* Get();
 
     // Ввод данных в структуру Оценка
     void InpMark();
 
     // Вывод данных из структуры
     void DisplayValue();
+
+    // Добавление элемента в конец списка
+    void Add(void);
+
+    // Вывод на дисплей содержимого списка
+    static void reprint(void);
 };
 
