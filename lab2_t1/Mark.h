@@ -8,7 +8,8 @@ class Mark
 private:
     int value = 0;          // Оценка
 
-    static Mark* lastMark;  // Адрес проследнего эл-та списка
+
+    static Mark* lastMark;  // Адрес последнего элемента списка
     Mark* prev;             // На предыдущий элемент списка
     Mark* next;             // На следующий элемент списка
 
@@ -22,6 +23,9 @@ public:
 
     // Деструктор
     ~Mark();
+
+    // Создание нового списка
+    void NewList();
 
     // Инициализация структуры Оценка
     void Set(int v);
