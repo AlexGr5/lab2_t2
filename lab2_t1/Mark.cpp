@@ -77,12 +77,6 @@ void Mark::reprint(void)
     }
 }
 
-// Создание нового списка
-//void Mark::NewList()
-//{
-//    lastMark = NULL;
-//}
-
 // Деструктор
 Mark::~Mark()
 {
