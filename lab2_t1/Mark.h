@@ -41,5 +41,8 @@ public:
 
     // Вывод на дисплей содержимого списка
     static void reprint(void);
+
+    // Дружественная функция сравнения оценки с числом
+    friend bool compare(Mark mark, int value);
 };
 

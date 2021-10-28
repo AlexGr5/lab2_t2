@@ -82,3 +82,12 @@ Mark::~Mark()
 {
     ;
 }
+
+// Дружественная функция сравнения оценки с числом
+bool compare(Mark mark, int value)
+{
+    bool bl = false;
+    if (mark.value == value)
+        bl = true;
+    return bl;
+}
