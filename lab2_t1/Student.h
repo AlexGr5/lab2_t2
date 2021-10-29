@@ -56,4 +56,7 @@ public:
     // Вывод ученика с всеми предметами, даже пустыми
     void DispFullInfo();
 
+    // Дружественная функция обмена ФИО классов Teacher и Student
+    friend void NameExchange(Teacher& teacher, Student& student);
+
 };

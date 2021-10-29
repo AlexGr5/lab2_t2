@@ -7,6 +7,8 @@
 
 using namespace std;
 
+class Student;
+
 // Класс Учитель
 class Teacher
 {
@@ -36,6 +38,9 @@ public:
 
     // Ввод учителя на экран
     void DisplayInfo();
+
+    // Дружественная функция обмена ФИО классов Teacher и Student
+    friend void NameExchange(Teacher &teacher, Student &student);
 
 };
 

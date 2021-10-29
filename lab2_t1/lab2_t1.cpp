@@ -8,6 +8,8 @@ Mark* Mark::lastMark = NULL;
 
 int main()
 {
+	setlocale(LC_ALL, "Russian");
+
 	// Создание обЪектов классов
 			//----------------------------------
 	Teacher teachers[3];
@@ -115,7 +117,7 @@ int main()
 	cout << "Тест возврата значения из метода класса Mark через указатель (*)" << endl;
 	int* mark_p;
 	mark_p = marks1[0].Get();
-	cout << mark_p << endl;
+	cout << *mark_p << endl;
 
 	cout << "\n\n" << endl;
 	cout << "2)" << endl;
@@ -140,15 +142,22 @@ int main()
 	cout << "\n\n" << endl;
 	cout << "3)" << endl;
 	cout << "=================================================================" << endl;
-	cout << "Дружественная функция сравнения \'оценки\' Mark с числом" << endl;
-	if (compare(A, 2))
-		cout << "Переменная А равна 2!" << endl;
-	else
-		cout << "Переменная А не равна 2!" << endl;
-	cout << "\n" << endl;
-	if (compare(C, 3))
-		cout << "Переменная C равна 3!" << endl;
-	else
-		cout << "Переменная C не равна 3!" << endl;
+	cout << "Дружественная функция обмена ФИО классов \n \'учитель\' Teacher и \'ученик\' Student:" << endl;
+	teachers[0].DisplayInfo();
+	cout << endl;
+	students[0].DisplayShortInfo();
+	cout << "Обмен ФИО:" << endl;
+	NameExchange(teachers[0], students[0]);
+	cout << endl;
+	teachers[0].DisplayInfo();
+	cout << endl;
+	students[0].DisplayShortInfo();
+
+	cout << "\n\n" << endl;
+	cout << "4)" << endl;
+	cout << "=================================================================" << endl;
+	cout << "перегрузку операторов '+', '++' (два варианта, префиксный и постфиксный) \n для класса \'оценка\' Mark" << endl;
+
+	
 }
 

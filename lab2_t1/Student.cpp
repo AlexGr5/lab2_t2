@@ -190,7 +190,7 @@ void Student::DisplayShortInfo()
     int i = 0;
     while (lessons[i].GetNameLess() != "")
     {
-        cout << " * " << lessons[i].GetNameLess() << " * " << marks[i].Get() << " * " << endl;
+        cout << " * " << lessons[i].GetNameLess() << " * " << *marks[i].Get() << " * " << endl;
         i++;
     }
 }
@@ -220,4 +220,22 @@ void Student::DispFullInfo()
 Student::~Student()
 {
     ;
+}
+
+// Дружественная функция обмена ФИО классов Teacher и Student
+void NameExchange(Teacher& teacher, Student& student)
+{
+    string fam, name, otch;
+
+    fam = teacher.fam;
+    teacher.fam = student.fam;
+    student.fam = fam;
+
+    name = teacher.name;
+    teacher.name = student.name;
+    student.name = name;
+
+    otch = teacher.otch;
+    teacher.otch = student.otch;
+    student.otch = otch;
 }
