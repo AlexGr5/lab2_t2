@@ -41,5 +41,15 @@ public:
 
     // Вывод на дисплей содержимого списка
     static void reprint(void);
+
+    // Перегрузка оператора '+' (Mark + int)
+    friend Mark operator+(const Mark& mark, int value);
+
+    // Перегрузка префиксного оператора '++'
+    Mark& operator++();
+
+    // Перегрузка постфиксного оператора '++'
+    Mark operator++ (int);
+
 };
 

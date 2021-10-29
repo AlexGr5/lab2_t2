@@ -9,6 +9,8 @@ Mark* Mark::lastMark = NULL;
 int main()
 {
 	setlocale(LC_ALL, "Russian");
+	system("chcp 1251");
+	system("cls");
 
 	// Создание обЪектов классов
 			//----------------------------------
@@ -156,8 +158,31 @@ int main()
 	cout << "\n\n" << endl;
 	cout << "4)" << endl;
 	cout << "=================================================================" << endl;
-	cout << "перегрузку операторов '+', '++' (два варианта, префиксный и постфиксный) \n для класса \'оценка\' Mark" << endl;
-
+	cout << "Перегрузка оператора \'+\' для класса \'оценка\' Mark" << endl;
+	Mark markPoor(2);
+	markPoor.DisplayValue();
+	cout << "Прибавим к оценке выше 2 балла:" << endl;
+	markPoor = markPoor + 2;
+	markPoor.DisplayValue();
+	cout << "\n" << endl;
+	cout << "Перегрузка оператора \'++\' (два варианта, префиксный и постфиксный) \n для класса \'оценка\' Mark" << endl;
+	markPoor.Set(2);
+	markPoor.DisplayValue();
+	cout << endl;
+	cout << "Использование оператора \'++\' (префиксный):" << endl;
+	++markPoor;
+	markPoor.DisplayValue();
+	cout << endl;
+	cout << "Использование оператора \'++\' (постфиксный):" << endl;
+	markPoor++;
+	markPoor.DisplayValue();
 	
+	cout << "\n\n" << endl;
+	cout << "5)" << endl;
+	cout << "=================================================================" << endl;
+	cout << "Заменить массивы char на std::string, продемонстрировать работу с этим классом" << endl;
+	cout << "Тест ввода в переменную типа std::string на примере ввода учителя:" << endl;
+	teachers[0].InpFIO();
+	teachers[0].DisplayInfo();
 }
 

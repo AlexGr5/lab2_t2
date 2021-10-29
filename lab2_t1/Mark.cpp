@@ -82,3 +82,27 @@ Mark::~Mark()
 {
     ;
 }
+
+// Выполняем Mark + int
+Mark operator+(const Mark& mark, int value)
+{
+    if (mark.value + value > 5)
+        return mark;
+    else
+        return Mark(mark.value + value);
+}
+
+// Перегрузка префиксного оператора '++'
+Mark& Mark::operator++()
+{
+    value += 1;
+    return *this;
+}
+
+// Перегрузка постфиксного оператора '++'
+Mark Mark::operator++ (int)
+{
+    Mark m1 = *this;
+    ++* this;
+    return m1;
+}
