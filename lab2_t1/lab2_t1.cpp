@@ -182,7 +182,7 @@ int main()
 	cout << "=================================================================" << endl;
 	cout << "Заменить массивы char на std::string, продемонстрировать работу с этим классом" << endl;
 	cout << "Тест ввода в переменную типа std::string на примере ввода учителя:" << endl;
-	teachers[0].InpFIO();
+	teachers[0].AdditionSapces();
 	teachers[0].DisplayInfo();
 }
 

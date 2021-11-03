@@ -51,6 +51,14 @@ void Teacher::DisplayInfo()
 
 }
 
+// Обработка строк
+void Teacher::AdditionSapces()
+{
+    fam = fam + "  ";
+    name = name + "  ";
+    otch = otch + "  ";
+}
+
 // Деструктор
 Teacher::~Teacher()
 {

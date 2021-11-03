@@ -42,5 +42,8 @@ public:
     // Дружественная функция обмена ФИО классов Teacher и Student
     friend void NameExchange(Teacher &teacher, Student &student);
 
+    // Обработка строк
+    void AdditionSapces();
+
 };
 
