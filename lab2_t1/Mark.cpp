@@ -19,9 +19,15 @@ void Mark::Set(int v)
 }
 
 // Получение оценки
-int* Mark::Get()
+int Mark::Get()
 {
-    return &this->value;
+    return this->value;
+}
+
+// Получение оценки через указатель
+void Mark::GetPoint(int* Value)
+{
+    *Value = value;
 }
 
 // Ввод данных в структуру Оценка

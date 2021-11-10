@@ -106,19 +106,19 @@ int main()
 	cout << "1)" << endl;
 	cout << "=================================================================" << endl;
 	cout << "Тест возврата значения из метода класса Teacher через ссылку (&)" << endl;
-	string& Fam = teachers[0].GetFam();
-	string& Name = teachers[0].GetName();
-	string& Otch = teachers[0].GetOtch();
+	string Fam;  string& F = Fam;  teachers[0].GetFamLink(F);
+	string Name; string& N = Name; teachers[0].GetNameLink(Name);
+	string Otch; string& O = Otch; teachers[0].GetOtchLink(Otch);
 	
-	cout << Fam << endl;
-	cout << Name << endl;
-	cout << Otch << endl;
+	cout << F << endl;
+	cout << N << endl;
+	cout << O << endl;
 
 	cout << "\n" << endl;
 
 	cout << "Тест возврата значения из метода класса Mark через указатель (*)" << endl;
-	int* mark_p;
-	mark_p = marks1[0].Get();
+	int* mark_p = new int;
+	marks1[0].GetPoint(mark_p);
 	cout << *mark_p << endl;
 
 	cout << "\n\n" << endl;

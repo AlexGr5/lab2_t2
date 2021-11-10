@@ -28,7 +28,10 @@ public:
     void Set(int v);
 
     // Получение оценки
-    int* Get();
+    int Get();
+
+    // Получение оценки через указатель
+    void GetPoint(int* Value);
 
     // Ввод данных в структуру Оценка
     void InpMark();

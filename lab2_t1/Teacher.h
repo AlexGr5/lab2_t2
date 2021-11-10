@@ -23,9 +23,14 @@ public:
     Teacher();
 
     // Фун-ии получения данных из полей
-    string& GetFam();
-    string& GetName();
-    string& GetOtch();
+    string GetFam();
+    string GetName();
+    string GetOtch();
+
+    // Фун-ии получения данных из полей через ссылку
+    void GetFamLink(string &Fam);
+    void GetNameLink(string &Name);
+    void GetOtchLink(string &Otch);
 
     // Деструктор
     ~Teacher();

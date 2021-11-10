@@ -190,7 +190,7 @@ void Student::DisplayShortInfo()
     int i = 0;
     while (lessons[i].GetNameLess() != "")
     {
-        cout << " * " << lessons[i].GetNameLess() << " * " << *marks[i].Get() << " * " << endl;
+        cout << " * " << lessons[i].GetNameLess() << " * " << marks[i].Get() << " * " << endl;
         i++;
     }
 }
