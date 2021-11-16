@@ -45,6 +45,9 @@ public:
     // Вывод на дисплей содержимого списка
     static void reprint(void);
 
+    // Создание нового списка
+    static void NewList();
+
     // Перегрузка оператора '+' (Mark + int)
     friend Mark operator+(const Mark& mark, int value);
 
