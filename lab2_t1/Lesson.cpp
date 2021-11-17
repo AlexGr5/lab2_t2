@@ -7,6 +7,20 @@ Lesson::Lesson()
     this->teacher.Set("", "", "");
 }
 
+// Конструктор с одним параметром
+Lesson::Lesson(string NameLesson)
+{
+    nameLesson = NameLesson;
+    teacher.Set("", "", "");
+}
+
+// Конструктор с параметрами
+Lesson::Lesson(string Name_Less, Teacher Teacher1)
+{
+    nameLesson = Name_Less;
+    teacher = Teacher1;
+}
+
 // Инициализация класса Уроки
 void Lesson::Set(string Name_Less, Teacher t)
 {

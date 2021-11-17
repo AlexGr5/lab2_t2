@@ -22,6 +22,12 @@ public:
     // Конструктор
     Teacher();
 
+    // Конструктор с одним параметром
+    Teacher(string Fam);
+
+    // Конструктор с параметрами
+    Teacher(string Fam, string Name, string Otch);
+
     // Фун-ии получения данных из полей
     string GetFam();
     string GetName();

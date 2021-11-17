@@ -18,6 +18,12 @@ public:
     // Конструктор
     Student();
 
+    // Конструктор с одним параметром
+    Student(string Fam);
+
+    // Конструктор с параметрами
+    Student(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess);
+
     // Деструктор
     ~Student();
 

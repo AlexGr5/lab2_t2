@@ -22,6 +22,51 @@ Student::Student()
     }
 }
 
+// Конструктор с одним параметром
+Student::Student(string Fam)
+{
+    fam = Fam;
+    name = "";
+    otch = "";
+    Lesson L;
+    Mark M;
+    L.Null();
+    M.Set(0);
+    countLess = 0;
+    for (int i = 0; i < 20; i++)
+    {
+        lessons[i] = L;
+    }
+
+    for (int i = 0; i < 20; i++)
+    {
+        marks[i] = M;
+    }
+
+}
+
+// Конструктор с параметрами
+Student::Student(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess)
+{
+    this->fam = Fam;
+    this->name = Name;
+    this->otch = Otch;
+
+    this->countLess = 0;
+
+    int i = 0;
+    for (i = 0; i < LenLess && i < 20; i++)
+    {
+        lessons[i] = mas_l[i];
+        this->countLess++;
+    }
+
+    for (int i = 0; i < LenMark && i < 20; i++)
+    {
+        marks[i] = mas_m[i];
+    }
+}
+
 // Очищение всех полей структуры Ученик (Student)
 void Student::Null()
 {

@@ -16,6 +16,12 @@ public:
     // Конструктор
     MyClass();
 
+    // Конструктор с одним параметром
+    MyClass(string ClassName);
+
+    // Конструктор с параметрами
+    MyClass(string Name, string Year, Student mas[], int LenStud);
+
     // Деструктор
     ~MyClass();
 

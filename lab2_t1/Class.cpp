@@ -14,6 +14,34 @@ MyClass::MyClass()
     }
 }
 
+// Конструктор с одним параметром
+MyClass::MyClass(string ClassName)
+{
+    className = ClassName;
+    yearOfStudy = "";
+    contStuds = 0;
+    Student S;
+    S.Null();
+    for (int i = 0; i < 32; i++)
+    {
+        students[i] = S;
+    }
+}
+
+// Конструктор с параметрами
+MyClass::MyClass(string Name, string Year, Student mas[], int LenStud)
+{
+    this->className = Name;
+    this->yearOfStudy = Year;
+    this->contStuds = 0;
+    Student S;
+    S.Null();
+    for (int i = 0; i < 32 && i < LenStud; i++)
+    {
+        students[i] = mas[i];
+    }
+}
+
 // Очищение полей структуры Класс
 void MyClass::Null()
 {

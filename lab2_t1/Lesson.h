@@ -13,6 +13,12 @@ public:
     // Конструктор
     Lesson();
 
+    // Конструктор с одним параметром
+    Lesson(string NameLesson);
+
+    // Конструктор с параметрами
+    Lesson(string Name_Less, Teacher Teacher1);
+
     // Фун-ии получения данных из полей
     string GetNameLess();
     Teacher GetTeacher();

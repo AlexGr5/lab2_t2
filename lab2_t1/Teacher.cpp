@@ -8,6 +8,22 @@ Teacher::Teacher()
     otch = "";
 }
 
+// Конструктор с одним параметром
+Teacher::Teacher(string Fam)
+{
+    fam = Fam;
+    name = "";
+    otch = "";
+}
+
+// Конструктор с параметрами
+Teacher::Teacher(string Fam, string Name, string Otch)
+{
+    fam = Fam;
+    name = Name;
+    otch = Otch;
+}
+
 
 // Фун-ии получения данных из полей
 string Teacher::GetFam()
