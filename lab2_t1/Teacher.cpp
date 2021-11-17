@@ -57,6 +57,24 @@ void Teacher::GetOtchLink(string& Otch)
     Otch = this->otch;
 }
 
+// Установить фамилию
+void Teacher::SetFam(string Fam)
+{
+    fam = Fam;
+}
+
+// Установить имя
+void Teacher::SetName(string Name)
+{
+    name = Name;
+}
+
+// Установить отчество
+void Teacher::SetOtch(string Otch)
+{
+    otch = Otch;
+}
+
 // Инициализация класса Учитель
 void Teacher::Set(string Fam_s, string Name_s, string Otch_s)
 {

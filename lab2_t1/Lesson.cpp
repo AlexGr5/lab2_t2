@@ -21,6 +21,18 @@ Lesson::Lesson(string Name_Less, Teacher Teacher1)
     teacher = Teacher1;
 }
 
+// Установить название урока
+void Lesson::SetLesson(string NameLesson)
+{
+    nameLesson = NameLesson;
+}
+
+// Установить учителя
+void Lesson::SetTeacher(Teacher Teacher1)
+{
+    teacher = Teacher1;
+}
+
 // Инициализация класса Уроки
 void Lesson::Set(string Name_Less, Teacher t)
 {

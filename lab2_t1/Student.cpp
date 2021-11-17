@@ -125,7 +125,43 @@ Lesson Student::GetLessByNumber(int i)
     return l;
 }
 
+// Установка фамилии
+void Student::SetFam(string Fam)
+{
+    fam = Fam;
+}
 
+// Установка Имени
+void Student::SetName(string Name)
+{
+    name = Name;
+}
+
+// Установка Отчества
+void Student::SetOtch(string Otch)
+{
+    otch = Otch;
+}
+
+// Установка Оценок
+void Student::SetMarks(Mark mas_m[], int LenMark)
+{
+    for (int i = 0; i < LenMark && i < 20; i++)
+    {
+        marks[i] = mas_m[i];
+    }
+}
+
+// Установка Уроков
+void Student::SetLessons(Lesson mas_l[], int LenLess)
+{
+    int i = 0;
+    for (i = 0; i < LenLess && i < 20; i++)
+    {
+        lessons[i] = mas_l[i];
+        this->countLess++;
+    }
+}
 
 // Инициализация структуры Ученик
 void Student::Set(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess)

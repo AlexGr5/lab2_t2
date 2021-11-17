@@ -28,6 +28,15 @@ public:
     // Конструктор с параметрами
     Teacher(string Fam, string Name, string Otch);
 
+    // Установить фамилию
+    void SetFam(string Fam);
+
+    // Установить имя
+    void SetName(string Name);
+
+    // Установить отчество
+    void SetOtch(string Otch);
+
     // Фун-ии получения данных из полей
     string GetFam();
     string GetName();

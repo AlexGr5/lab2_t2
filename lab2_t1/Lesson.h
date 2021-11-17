@@ -26,6 +26,12 @@ public:
     // Деструктор
     ~Lesson();
 
+    // Установить название урока
+    void SetLesson(string NameLesson);
+
+    // Установить учителя
+    void SetTeacher(Teacher Teacher1);
+
     // Инициализация класса Уроки
     void Set(string Name_Less, Teacher t);
 

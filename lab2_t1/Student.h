@@ -39,7 +39,22 @@ public:
     Lesson GetLessByNumber(int i);
 
     // Очищение всех полей структуры Ученик (Student)
-   void Null();
+    void Null();
+
+    // Установка фамилии
+    void SetFam(string Fam);
+
+    // Установка Имени
+    void SetName(string Name);
+
+    // Установка Отчества
+    void SetOtch(string Otch);
+
+    // Установка Оценок
+    void SetMarks(Mark mas_m[], int LenMark);
+
+    // Установка Уроков
+    void SetLessons(Lesson mas_l[], int LenLess);
 
     // Инициализация структуры Ученик
     void Set(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess);
