@@ -28,6 +28,15 @@ public:
     // Очищение полей структуры Класс
     void Null();
 
+    // Установка Названия
+    void SetName(string Name);
+
+    // Установка Года
+    void SetName(string Year);
+
+    // Установка учеников
+    void SetName(Student mas[], int LenStud);
+
     // Инициализация структуры Класс
     void Set(string Name, string Year, Student mas[], int LenStud);
 

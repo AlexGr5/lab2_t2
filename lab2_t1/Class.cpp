@@ -56,17 +56,38 @@ void MyClass::Null()
     }
 }
 
+// Установка Названия
+void MyClass::SetName(string Name)
+{
+    className = Name;
+}
+
+// Установка Года
+void MyClass::SetName(string Year)
+{
+    yearOfStudy = Year;
+}
+
+// Установка учеников
+void MyClass::SetName(Student mas[], int LenStud)
+{
+    for (int i = 0; i < 32 && i < LenStud; i++)
+    {
+        students[i] = mas[i];
+        contStuds++;
+    }
+}
+
 // Инициализация структуры Класс
 void MyClass::Set(string Name, string Year, Student mas[], int LenStud)
 {
     this->className = Name;
     this->yearOfStudy = Year;
     this->contStuds = 0;
-    Student S;
-    S.Null();
     for (int i = 0; i < 32 && i < LenStud; i++)
     {
         students[i] = mas[i];
+        contStuds++;
     }
 }
 
