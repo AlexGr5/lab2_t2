@@ -259,7 +259,7 @@ int main()
 	Lesson lesson3("Математика", teacher3);
 
 	lesson1.Set("Химия", teacher1);
-
+	lesson2.SetTeacher(teacher2);
 	//lessons[0].Set("Химия", teacher1);
 	//lessons[1].Set("Обществознание", teacher2);
 	//lessons[2].Set("Математика", teacher3);
