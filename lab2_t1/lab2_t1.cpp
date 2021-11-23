@@ -230,8 +230,8 @@ int main()
 	cout << "\n\n" << endl;
 	// Создание обЪектов классов
 	//----------------------------------
-	//Teacher teachers[3];
-	//Lesson lessons[3];
+	Teacher teachers[3];
+	Lesson lessons[3];
 	Mark marks1[3];
 	Mark marks2[3];
 	Mark marks3[3];
@@ -247,22 +247,52 @@ int main()
 	Teacher teacher2("Погребнеков");
 	Teacher teacher3("Баянова", "Людмила", "Анатольевна");
 
+	cout << "Лабораторная 9" << endl;
+	cout << "" << endl;
+	cout << "Конструкторы класса Учитель:" << endl;
+	cout << "1) Конструктор без параметров:" << endl;
+	teacher1.DisplayInfo();
+	cout << "2) Конструктор с 1-им параметром:" << endl;
+	teacher2.DisplayInfo();
+	cout << "3) Конструктор с параметрами:" << endl;
+	teacher3.DisplayInfo();
+	cout << "\n\n" << endl;
+
 	teacher1.Set("Иванова", "Марина", "Витальевна");
 	teacher2.SetName("Николай");
 	teacher2.SetOtch("Михайлович");
-	//teachers[0].Set("Иванова", "Марина", "Витальевна");
-	//teachers[1].Set("Погребнеков", "Николай", "Михайлович");
-	//teachers[2].Set("Баянова", "Людмила", "Анатольевна");
+
+	teachers[0].Set("Иванова", "Марина", "Витальевна");
+	teachers[1].Set("Погребнеков", "Николай", "Михайлович");
+	teachers[2].Set("Баянова", "Людмила", "Анатольевна");
 
 	Lesson lesson1;
 	Lesson lesson2("Обществознание");
 	Lesson lesson3("Математика", teacher3);
 
+	cout << "Конструкторы класса Урок:" << endl;
+	cout << "1) Конструктор без параметров:" << endl;
+	lesson1.DisplayInfo();
+	cout << "2) Конструктор с 1-им параметром:" << endl;
+	lesson2.DisplayInfo();
+	cout << "3) Конструктор с параметрами:" << endl;
+	lesson3.DisplayInfo();
+	cout << "\n\n" << endl;
+
 	lesson1.Set("Химия", teacher1);
 	lesson2.SetTeacher(teacher2);
-	//lessons[0].Set("Химия", teacher1);
-	//lessons[1].Set("Обществознание", teacher2);
-	//lessons[2].Set("Математика", teacher3);
+	lessons[0].Set("Химия", teacher1);
+	lessons[1].Set("Обществознание", teacher2);
+	lessons[2].Set("Математика", teacher3);
+
+	Mark markParamLess, markParam(3);
+
+	cout << "Конструкторы класса Оценка:" << endl;
+	cout << "1) Конструктор без параметров:" << endl;
+	markParamLess.DisplayValue();
+	cout << "2) Конструктор с 1-им параметром, он же с параметрами:" << endl;
+	markParam.DisplayValue();
+	cout << "\n\n" << endl;
 
 	marks1[0].Set(4);
 	marks1[1].Set(4);
@@ -282,51 +312,5 @@ int main()
 	//----------------------------------------------------------------------------------
 
 	int i = 0;
-
-	// Вывод всех данных на экран:
-	//----------------------------------------------------------------------------------
-
-	cout << "Вывод всех учителей:" << endl;
-	for (i = 0; i < 3; i++)
-		teachers[i].DisplayInfo();
-
-	cout << "\n\n";
-
-	cout << "Вывод всех уроков:" << endl;
-	for (i = 0; i < 3; i++)
-		lessons[i].DisplayInfo();
-
-	cout << "\n\n";
-
-	cout << "Вывод всех учеников:" << endl;
-	for (i = 0; i < 3; i++)
-		students[i].DisplayShortInfo();
-
-	cout << "\n\n";
-
-	cout << "Вывод Класса учеников:" << endl;
-	classNum1.DisplayShortInfo();
-
-	//----------------------------------------------------------------------------------
-
-	cout << "\n\n";
-
-	// Лучшие и хучшие ученики в классе
-	//----------------------------------------------------------------------------------
-	cout << "*******Функция поиска лучших учеников в классе*********" << endl;
-	cout << "Лучшие ученики класса №1:" << endl;
-	classNum1.BestStud();
-	cout << "***************************************************" << endl;
-
-	cout << "\n\n" << endl;
-
-	cout << "*******Функция поиска худших учеников в классе********" << endl;
-	cout << "Худшие ученики класса №1:" << endl;
-	classNum1.BedStud();
-	cout << "***************************************************" << endl;
-	//----------------------------------------------------------------------------------
-
-	cout << "\n\n" << endl;
-	cout << "\n\n" << endl;
 }
 
