@@ -63,13 +63,13 @@ void MyClass::SetName(string Name)
 }
 
 // Установка Года
-void MyClass::SetName(string Year)
+void MyClass::SetYear(string Year)
 {
     yearOfStudy = Year;
 }
 
 // Установка учеников
-void MyClass::SetName(Student mas[], int LenStud)
+void MyClass::SetStuds(Student mas[], int LenStud)
 {
     for (int i = 0; i < 32 && i < LenStud; i++)
     {

@@ -243,6 +243,37 @@ int main()
 	//---------------------------------------------------------------------------------
 	int j = 0;
 
+
+	teachers[0].Set("Иванова", "Марина", "Витальевна");
+	teachers[1].Set("Погребнеков", "Николай", "Михайлович");
+	teachers[2].Set("Баянова", "Людмила", "Анатольевна");
+
+
+
+	lessons[0].Set("Химия", teachers[0]);
+	lessons[1].Set("Обществознание", teachers[1]);
+	lessons[2].Set("Математика", teachers[2]);
+
+
+
+	marks1[0].Set(4);
+	marks1[1].Set(4);
+	marks1[2].Set(4);
+	marks2[0].Set(5);
+	marks2[1].Set(4);
+	marks2[2].Set(5);
+	marks3[0].Set(5);
+	marks3[1].Set(5);
+	marks3[2].Set(5);
+
+
+	students[0].Set("Сидоров", "Антон", "Витальевич", marks1, 3, lessons, 3);
+	students[1].Set("Герасимов", "Владимир", "Анатольевич", marks2, 3, lessons, 3);
+	students[2].Set("Иванов", "Николай", "Львович", marks3, 3, lessons, 3);
+
+	classNum1.Set("2В", "2010", students, 3);
+	//----------------------------------------------------------------------------------
+
 	Teacher teacher1;
 	Teacher teacher2("Погребнеков");
 	Teacher teacher3("Баянова", "Людмила", "Анатольевна");
@@ -258,17 +289,10 @@ int main()
 	teacher3.DisplayInfo();
 	cout << "\n\n" << endl;
 
-	teacher1.Set("Иванова", "Марина", "Витальевна");
-	teacher2.SetName("Николай");
-	teacher2.SetOtch("Михайлович");
-
-	teachers[0].Set("Иванова", "Марина", "Витальевна");
-	teachers[1].Set("Погребнеков", "Николай", "Михайлович");
-	teachers[2].Set("Баянова", "Людмила", "Анатольевна");
 
 	Lesson lesson1;
 	Lesson lesson2("Обществознание");
-	Lesson lesson3("Математика", teacher3);
+	Lesson lesson3("Математика", teachers[2]);
 
 	cout << "Конструкторы класса Урок:" << endl;
 	cout << "1) Конструктор без параметров:" << endl;
@@ -279,11 +303,7 @@ int main()
 	lesson3.DisplayInfo();
 	cout << "\n\n" << endl;
 
-	lesson1.Set("Химия", teacher1);
-	lesson2.SetTeacher(teacher2);
-	lessons[0].Set("Химия", teacher1);
-	lessons[1].Set("Обществознание", teacher2);
-	lessons[2].Set("Математика", teacher3);
+
 
 	Mark markParamLess, markParam(3);
 
@@ -294,23 +314,18 @@ int main()
 	markParam.DisplayValue();
 	cout << "\n\n" << endl;
 
-	marks1[0].Set(4);
-	marks1[1].Set(4);
-	marks1[2].Set(4);
-	marks2[0].Set(5);
-	marks2[1].Set(4);
-	marks2[2].Set(5);
-	marks3[0].Set(5);
-	marks3[1].Set(5);
-	marks3[2].Set(5);
 
-	students[0].Set("Сидоров", "Антон", "Витальевич", marks1, 3, lessons, 3);
-	students[1].Set("Герасимов", "Владимир", "Анатольевич", marks2, 3, lessons, 3);
-	students[2].Set("Иванов", "Николай", "Львович", marks3, 3, lessons, 3);
 
-	classNum1.Set("2В", "2010", students, 3);
-	//----------------------------------------------------------------------------------
+	Student uchenik1, uchenik2("Герасимов"), uchenik3("Герасимов", "Владимир", "Анатольевич", marks2, 3, lessons, 3);
+	cout << "Конструкторы класса Ученик:" << endl;
+	cout << "1) Конструктор без параметров:" << endl;
+	uchenik1.DisplayShortInfo();
+	cout << "2) Конструктор с 1-им параметром:" << endl;
+	uchenik2.DisplayShortInfo();
+	cout << "3) Конструктор с параметрами:" << endl;
+	uchenik3.DisplayShortInfo();
+	cout << "\n\n" << endl;
 
-	int i = 0;
+	MyClass class1, class2("5А"), class3("2В", "2010", students, 3);
 }
 

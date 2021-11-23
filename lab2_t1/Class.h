@@ -32,10 +32,10 @@ public:
     void SetName(string Name);
 
     // Установка Года
-    void SetName(string Year);
+    void SetYear(string Year);
 
     // Установка учеников
-    void SetName(Student mas[], int LenStud);
+    void SetStuds(Student mas[], int LenStud);
 
     // Инициализация структуры Класс
     void Set(string Name, string Year, Student mas[], int LenStud);
