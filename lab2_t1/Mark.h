@@ -37,7 +37,7 @@ public:
     void InpMark();
 
     // Вывод данных из структуры
-    void DisplayValue();
+    void DisplayInfo();
 
     // Добавление элемента в конец списка
     void Add(void);
@@ -56,6 +56,12 @@ public:
 
     // Перегрузка постфиксного оператора '++'
     Mark operator++ (int);
+
+    // Поверхностная копия
+    //Mark ShallowCopy();
+
+    // Глубокая копия
+    //Mark DeepCopy();
 
 };
 

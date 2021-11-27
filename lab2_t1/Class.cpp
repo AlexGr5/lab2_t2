@@ -5,13 +5,13 @@ MyClass::MyClass()
 {
     className = "";
     yearOfStudy = "";
-    contStuds = 0;
-    Student S;
-    S.Null();
-    for (int i = 0; i < 32; i++)
-    {
-        students[i] = S;
-    }
+    countStuds = 0;
+    //Student S;
+    //S.Null();
+    //for (int i = 0; i < 32; i++)
+    //{
+    //    students[i] = S;
+    //}
 }
 
 // Конструктор с одним параметром
@@ -19,13 +19,13 @@ MyClass::MyClass(string ClassName)
 {
     className = ClassName;
     yearOfStudy = "";
-    contStuds = 0;
-    Student S;
-    S.Null();
-    for (int i = 0; i < 32; i++)
-    {
-        students[i] = S;
-    }
+    countStuds = 0;
+    //Student S;
+    //S.Null();
+    //for (int i = 0; i < 32; i++)
+    //{
+    //    students[i] = S;
+    //}
 }
 
 // Конструктор с параметрами
@@ -33,12 +33,11 @@ MyClass::MyClass(string Name, string Year, Student mas[], int LenStud)
 {
     this->className = Name;
     this->yearOfStudy = Year;
-    this->contStuds = 0;
-    Student S;
-    S.Null();
+    this->countStuds = 0;
     for (int i = 0; i < 32 && i < LenStud; i++)
     {
         students[i] = mas[i];
+        countStuds++;
     }
 }
 
@@ -47,7 +46,7 @@ void MyClass::Null()
 {
     className = "";
     yearOfStudy = "";
-    contStuds = 0;
+    countStuds = 0;
     Student S;
     S.Null();
     for (int i = 0; i < 32; i++)
@@ -74,7 +73,7 @@ void MyClass::SetStuds(Student mas[], int LenStud)
     for (int i = 0; i < 32 && i < LenStud; i++)
     {
         students[i] = mas[i];
-        contStuds++;
+        countStuds++;
     }
 }
 
@@ -83,11 +82,11 @@ void MyClass::Set(string Name, string Year, Student mas[], int LenStud)
 {
     this->className = Name;
     this->yearOfStudy = Year;
-    this->contStuds = 0;
+    this->countStuds = 0;
     for (int i = 0; i < 32 && i < LenStud; i++)
     {
         students[i] = mas[i];
-        contStuds++;
+        countStuds++;
     }
 }
 
@@ -120,10 +119,10 @@ void MyClass::InpNameYear()
 bool MyClass::AddStud(Student st)
 {
     bool fl = false;
-    if (contStuds < 20)
+    if (countStuds < 20)
     {
-        students[contStuds] = st;
-        contStuds++;
+        students[countStuds] = st;
+        countStuds++;
         fl = true;
     }
 
@@ -132,7 +131,7 @@ bool MyClass::AddStud(Student st)
 
 // Вывод данных из структуры Класс
 // fl_out (0 или 1)
-void MyClass::DisplayShortInfo()
+void MyClass::DisplayInfo()
 {
 
     cout << "Название класса: " << className << endl;;
@@ -141,15 +140,14 @@ void MyClass::DisplayShortInfo()
     cout << "Ученики:" << endl;
 
     int i = 0;
-    while (students[i].GetFam() != "")
+    for (i = 0; i < countStuds; i++)
     {
-        students[i].DisplayShortInfo();
-        i++;
+        students[i].DisplayInfo();
     }
 
 }
 
-// Выод всех данных из структуры Класс
+// Вывод всех данных из структуры Класс
 void MyClass::DispFullInfo()
 {
     cout << "Название класса: " << className << endl;;
@@ -158,10 +156,9 @@ void MyClass::DispFullInfo()
     cout << "Ученики:" << endl;
 
     int i = 0;
-    while (students[i].GetFam() != "")
+    for (i = 0; i < countStuds; i++)
     {
         students[i].DispFullInfo();
-        i++;
     }
 }
 
@@ -207,7 +204,7 @@ bool MyClass::BestStud()
         for (int j = 0; j < i; j++)
         {
             if (mas_m[j] == maxM)
-                students[j].DisplayShortInfo();
+                students[j].DisplayInfo();
         }
 
         exit = true;
@@ -258,7 +255,7 @@ bool MyClass::BedStud()
         for (int j = 0; j < i; j++)
         {
             if (mas_m[j] == minM)
-                students[j].DisplayShortInfo();
+                students[j].DisplayInfo();
         }
         exit = true;
     }
@@ -266,8 +263,63 @@ bool MyClass::BedStud()
     return exit;
 }
 
+
+// Констроктор копии
+MyClass::MyClass(const MyClass& Class)
+{
+    // Поверхностное копирование, т.к. это не указатель
+    className = Class.className;
+
+    // Поверхностное копирование, т.к. это не указатель
+    yearOfStudy = Class.yearOfStudy;
+
+    // Поверхностное копирование, т.к. это не указатель
+    countStuds = Class.countStuds;
+    
+    if (Class.countStuds > 0)
+    {
+        // Так как students - это массив, то выполним глубокое копирование
+        for (int i = 0; i < Class.countStuds; i++)
+        {
+            students[i] = Class.students[i];
+        }
+    }
+
+}
+
 // Деструктор
 MyClass::~MyClass()
 {
     ;
+}
+
+
+// Перегрузка функции присваивания
+MyClass& MyClass::operator=(const MyClass& Class)
+{
+    // Проверка на самоприсваивание
+    if (this == &Class)
+        return *this;
+
+    // Сначала нам нужно очистить предыдущее значение m_data (члена неявного объекта)
+    delete[] students;
+
+    className = Class.className;
+
+    yearOfStudy = Class.yearOfStudy;
+
+    countStuds = Class.countStuds;
+
+    // m_data является указателем, поэтому нам нужно выполнить глубокое копирование, при условии, что этот указатель не является нулевым
+    if (Class.students)
+    {
+        // Выделяем память для нашей копии
+        students = new Student[32];
+
+        // Выполняем копирование
+        for (int i = 0; i < Class.countStuds; ++i)
+            students[i] = Class.students[i];
+    }
+
+    return *this;
 }

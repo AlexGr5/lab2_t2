@@ -72,7 +72,7 @@ public:
     bool AddMark(Lesson ls, Mark m);
 
     // Вывод ученика с предметами, которые у него есть
-    void DisplayShortInfo();
+    void DisplayInfo();
 
     // Вывод ученика с всеми предметами, даже пустыми
     void DispFullInfo();

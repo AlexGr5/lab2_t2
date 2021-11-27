@@ -7,7 +7,7 @@ class Lesson
 {
 private:
     string nameLesson = "";       // Название предмета
-    Teacher teacher;              // Учитель
+    Teacher* teacher;              // Учитель
 public:
 
     // Конструктор

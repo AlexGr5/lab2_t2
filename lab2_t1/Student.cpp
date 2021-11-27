@@ -263,16 +263,15 @@ bool Student::AddMark(Lesson ls, Mark m)
 // Вывод ученика
 // Передаем ученика и флаг для различного вывода уроков и оценок
 // fl_out (0 или 1)
-void Student::DisplayShortInfo()
+void Student::DisplayInfo()
 {
     cout << "ФИО ученика: " << fam << " " << name << " " << otch << endl;
 
     cout << "Уроки:" << endl;
     int i = 0;
-    while (lessons[i].GetNameLess() != "")
+    for (i = 0; i < countLess; i++)
     {
         cout << " * " << lessons[i].GetNameLess() << " * " << marks[i].Get() << " * " << endl;
-        i++;
     }
 }
 
@@ -293,7 +292,7 @@ void Student::DispFullInfo()
     cout << "Оценки:" << endl;
     for (int i = 0; i < 20; i++)
     {
-        marks[i].DisplayValue();
+        marks[i].DisplayInfo();
     }
 }
 

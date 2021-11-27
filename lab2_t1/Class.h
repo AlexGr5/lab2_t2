@@ -6,10 +6,10 @@
 class MyClass
 {
 private:
-    string className = "";          // Название класса
-    string yearOfStudy = "";        // Год обучения
-    int contStuds = 0;              // Текущее кол-во учеников
-    Student students[32];           // Массив учеников
+    string className = "";                  // Название класса
+    string yearOfStudy = "";                // Год обучения
+    int countStuds = 0;                     // Текущее кол-во учеников
+    Student* students = new Student[32];    // Массив учеников
 
 public:
     
@@ -21,6 +21,9 @@ public:
 
     // Конструктор с параметрами
     MyClass(string Name, string Year, Student mas[], int LenStud);
+
+    // Констроктор копии
+    MyClass(const MyClass& Class);
 
     // Деструктор
     ~MyClass();
@@ -51,7 +54,7 @@ public:
     bool AddStud(Student st);
 
     // Выод данных из структуры Класс
-    void DisplayShortInfo();
+    void DisplayInfo();
 
     // Выод всех данных из структуры Класс
     void DispFullInfo();
@@ -61,5 +64,8 @@ public:
 
     // Функция по нахождению худших учеников в классе
     bool BedStud();
+
+    // Перегрузка функции присваивания
+    MyClass& operator=(const MyClass& Class);
 
 };

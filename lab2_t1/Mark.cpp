@@ -41,7 +41,7 @@ void Mark::InpMark()
 }
 
 // Вывод данных из структуры
-void Mark::DisplayValue()
+void Mark::DisplayInfo()
 {
     cout << "Оценка: " << value << endl;
 
@@ -118,3 +118,17 @@ Mark Mark::operator++ (int)
     ++* this;
     return m1;
 }
+
+// Поверхностная копия
+//Mark Mark::ShallowCopy()
+//{
+//    return *this;
+//}
+
+// Глубокая копия
+//Mark Mark::DeepCopy()
+//{
+//    Mark other = this->Get();
+//    other.Set(value);
+//    return other;
+//}
