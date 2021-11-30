@@ -9,13 +9,17 @@ Mark::Mark()
 // Конструктор
 Mark::Mark(int value)
 {
-    this->value = value;
+    this->value = 0;
+    if (IsRightMark(value))
+        this->value = value;
 }
 
 // Инициализация структуры Оценка
 void Mark::Set(int v)
 {
-    value = v;
+    this->value = 0;
+    if (IsRightMark(v))
+        this->value = v;
 }
 
 // Получение оценки
@@ -36,7 +40,21 @@ void Mark::InpMark()
     string mark;
     cout << "Введите оценку: ";
     cin >> mark;
-    value = stoi(mark);
+
+    try                                                 // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch          
+    {
+        for (int i = 0; i < mark.length(); i++)
+        {
+            if ((mark[i]  < '0') || (mark[i] > '9'))
+                throw "It string is not number!";       // выбрасывается исключение типа const char*
+        }
+        Set(stoi(mark));
+    }
+    catch (const char* exception)                       // обработчик исключений типа const char*
+    {
+        std::cerr << "Error: " << exception << '\n';
+        //std::cerr << "Error: " << "It string is not number!" << '\n';
+    }
     cout << endl;
 }
 
@@ -117,6 +135,25 @@ Mark Mark::operator++ (int)
     Mark m1 = *this;
     ++* this;
     return m1;
+}
+
+// Проверка числа на подходяее для оценки
+bool Mark::IsRightMark(int mark)
+{
+    bool res = true;
+    try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
+    {
+        if (mark < 1 || mark > 5)           // Если пользователь ввел неверное число, то выбрасывается исключение
+            throw "Incorrect value.";       // выбрасывается исключение типа const char*
+    }
+    catch (const char* exception)           // обработчик исключений типа const char*
+    {
+        std::cerr << "Error: " << exception << '\n';
+        res = false;
+        return res;
+    }
+
+    return res;
 }
 
 // Поверхностная копия

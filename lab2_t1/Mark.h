@@ -57,6 +57,9 @@ public:
     // Перегрузка постфиксного оператора '++'
     Mark operator++ (int);
 
+    // Проверка числа на подходяее для оценки
+    bool IsRightMark(int mark);
+
     // Поверхностная копия
     //Mark ShallowCopy();
 
