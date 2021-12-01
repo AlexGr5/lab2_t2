@@ -6,7 +6,7 @@ Mark::Mark()
     value = 0;
 }
 
-// Конструктор
+// Конструктор с параметром
 Mark::Mark(int value)
 {
     this->value = 0;
@@ -34,7 +34,7 @@ void Mark::GetPoint(int* Value)
     *Value = value;
 }
 
-// Ввод данных в структуру Оценка
+// Ввод данных в Класс Оценка
 void Mark::InpMark()
 {
     string mark;
@@ -58,7 +58,7 @@ void Mark::InpMark()
     cout << endl;
 }
 
-// Вывод данных из структуры
+// Вывод данных из класса
 void Mark::DisplayInfo()
 {
     cout << "Оценка: " << value << endl;
@@ -137,7 +137,7 @@ Mark Mark::operator++ (int)
     return m1;
 }
 
-// Проверка числа на подходяее для оценки
+// Проверка числа на подходящее для оценки
 bool Mark::IsRightMark(int mark)
 {
     bool res = true;
