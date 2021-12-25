@@ -23,7 +23,7 @@ Student::Student()
 }
 
 // Конструктор с одним параметром
-Student::Student(string Fam)
+Student::Student(string Fam) : Persone(Fam, "", "")
 {
     fam = Fam;
     name = "";
@@ -46,11 +46,11 @@ Student::Student(string Fam)
 }
 
 // Конструктор с параметрами
-Student::Student(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess)
+Student::Student(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess) : Persone(Fam, Name, Otch)
 {
-    this->fam = Fam;
-    this->name = Name;
-    this->otch = Otch;
+    //this->fam = Fam;
+    //this->name = Name;
+    //this->otch = Otch;
 
     this->countLess = 0;
 
@@ -90,7 +90,7 @@ void Student::Null()
     }
 }
 
-
+/*
 // Функции получения значений полей
 string Student::GetFam()
 {
@@ -106,6 +106,7 @@ string Student::GetOtch()
 {
     return this->otch;
 }
+*/
 
 Mark Student::GetMarkByNumber(int i)
 {
@@ -125,6 +126,7 @@ Lesson Student::GetLessByNumber(int i)
     return l;
 }
 
+/*
 // Установка фамилии
 void Student::SetFam(string Fam)
 {
@@ -142,6 +144,7 @@ void Student::SetOtch(string Otch)
 {
     otch = Otch;
 }
+*/
 
 // Установка Оценок
 void Student::SetMarks(Mark mas_m[], int LenMark)
@@ -318,4 +321,20 @@ void NameExchange(Teacher& teacher, Student& student)
     otch = teacher.otch;
     teacher.otch = student.otch;
     student.otch = otch;
+}
+
+// Перегрузка оператора '=' (Student = Persone)
+Student& Student::operator=(Persone& persone)
+{
+    this->fam = persone.GetFam();
+    this->name = persone.GetName();
+    this->otch = persone.GetOtch();
+
+    return *this;
+}
+
+// Виртуальная функция вывода сообщения на екран, кем является человек (рабочим, учителем, учеником)
+string Student::WhoIs()
+{
+    return "Человек является учеником.";
 }

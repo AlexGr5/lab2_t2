@@ -3,12 +3,12 @@
 #include "Mark.h"
 
 // Класс Ученик
-class Student
+class Student : public Persone
 {
 private:
-    string fam = "";            // Фамилия
-    string name = "";           // Имя
-    string otch = "";           // Отчество
+    //string fam = "";            // Фамилия
+    //string name = "";           // Имя
+    //string otch = "";           // Отчество
     Mark marks[20];             // Массив оценок
     Lesson lessons[20];         // Массив уроков
     int countLess = 0;          // Текущее кол-во уроков
@@ -28,9 +28,9 @@ public:
     ~Student();
 
     // Функции получения значений полей
-    string GetFam();
-    string GetName();
-    string GetOtch();
+    //string GetFam();
+    //string GetName();
+    //string GetOtch();
 
     // Возвращает оценку по индексу в массиве
     Mark GetMarkByNumber(int i);
@@ -42,13 +42,13 @@ public:
     void Null();
 
     // Установка фамилии
-    void SetFam(string Fam);
+    //void SetFam(string Fam);
 
     // Установка Имени
-    void SetName(string Name);
+    //void SetName(string Name);
 
     // Установка Отчества
-    void SetOtch(string Otch);
+    //void SetOtch(string Otch);
 
     // Установка Оценок
     void SetMarks(Mark mas_m[], int LenMark);
@@ -79,5 +79,11 @@ public:
 
     // Дружественная функция обмена ФИО классов Teacher и Student
     friend void NameExchange(Teacher& teacher, Student& student);
+
+    // Перегрузка оператора '=' (Student = Persone)
+    Student& operator=(Persone& persone);
+
+    // Виртуальная функция вывода сообщения на екран, кем является человек (рабочим, учителем, учеником)
+    virtual string WhoIs();
 
 };

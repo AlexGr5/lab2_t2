@@ -1,57 +1,55 @@
 #pragma once
+#include "Persone.h"
 
-#include <iostream>
-#include <stdio.h>
-#include <string>
-#include <locale.h>
+//#include <iostream>
+//#include <stdio.h>
+//#include <string>
+//#include <locale.h>
 
-using namespace std;
+//using namespace std;
 
 class Student;
 
 // Класс Учитель
-class Teacher
+class Teacher : public Persone
 {
 private:
-    string fam = "";        // Фамилия
-    string name = "";       // Имя
-    string otch = "";       // Отчество
+    //string fam = "";        // Фамилия
+    //string name = "";       // Имя
+    //string otch = "";       // Отчество
 
 public:
 
     // Конструктор
     Teacher();
 
-    // Конструктор с одним параметром
-    Teacher(string Fam);
-
     // Конструктор с параметрами
     Teacher(string Fam, string Name, string Otch);
 
     // Установить фамилию
-    void SetFam(string Fam);
+    //void SetFam(string Fam);
 
     // Установить имя
-    void SetName(string Name);
+    //void SetName(string Name);
 
     // Установить отчество
-    void SetOtch(string Otch);
+    //void SetOtch(string Otch);
 
     // Фун-ии получения данных из полей
-    string GetFam();
-    string GetName();
-    string GetOtch();
+    //string GetFam();
+    //string GetName();
+    //string GetOtch();
 
     // Фун-ии получения данных из полей через ссылку
-    void GetFamLink(string &Fam);
-    void GetNameLink(string &Name);
-    void GetOtchLink(string &Otch);
+    //void GetFamLink(string &Fam);
+    //void GetNameLink(string &Name);
+    //void GetOtchLink(string &Otch);
 
     // Деструктор
     ~Teacher();
 
-    // Инициализация структуры Учитель
-    void Set(string Fam, string Name, string Otch);
+    // Инициализация класса Учитель
+    //void Set(string Fam, string Name, string Otch);
 
     // Ввод учителя
     void InpFIO();
@@ -63,7 +61,16 @@ public:
     friend void NameExchange(Teacher &teacher, Student &student);
 
     // Обработка строк
-    void AdditionSapces();
+    //void AdditionSapces();
+
+    // Перегрузка оператора '=' (Teacher = Persone)
+    Teacher& operator=(Persone &persone);
+
+    // Расширение действий оператора <<
+    friend std::ostream& operator<< (std::ostream& out, const Teacher& teaher);
+
+    // Виртуальная функция вывода сообщения на екран, кем является человек (рабочим, учителем, учеником)
+    virtual string WhoIs();
 
 };
 

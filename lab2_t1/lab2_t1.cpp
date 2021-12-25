@@ -8,37 +8,26 @@ Mark* Mark::lastMark = NULL;
 
 int main()
 {
-	//setlocale(LC_ALL, "Russian");
-	//system("chcp 1251");
-	//system("cls");
+	setlocale(LC_ALL, "Russian");
+	system("chcp 1251");
+	system("cls");
 
-	Mark mark1[3], mark2[2][2];
+	Teacher teach1, teach2("Погребнеков", "Николай", "Михайлович");
 
-	// Присваивание
-	//=================================
-	mark1[0] = 3;
-	mark1[1] = 4;
-	mark1[2] = 5;
+	teach1.Set("Иванова", "Марина", "Витальевна");
+	//teach1.InpFIO();
+	cout << teach1 << endl;
+	cout << teach2 << endl;
+	//teach1.DisplayInfo();
+	//teach2.DisplayInfo();
 
-	int base = 4;
+	Student stud1;
+	stud1.SetFam("Герасимов");
+	stud1.SetName("Николай");
+	stud1.SetOtch("Александрович");
 
-	for (int i = 0; i < 2; i++)
-		for (int j = 0; j < 2; j++)
-			mark2[i][j] = base + j;
-	//=================================
-
-	// Вывод
-	//=================================
-	cout << "Одномерный массив размером [3]" << endl;
-	for (int i = 0; i < 3; i++)
-		mark1[i].DisplayInfo();
-
-	cout << endl;
-	cout << "Двумерный массив размером [2][2]" << endl;
-	for (int i = 0; i < 2; i++)
-		for (int j = 0; j < 2; j++)
-			mark2[i][j].DisplayInfo();
-	//=================================
+	cout << teach1.WhoIs() << endl;
+	cout << stud1.WhoIs() << endl;
 
 }
 

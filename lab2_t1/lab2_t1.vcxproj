@@ -143,6 +143,7 @@
     <ClCompile Include="lab2_t1.cpp" />
     <ClCompile Include="Lesson.cpp" />
     <ClCompile Include="Mark.cpp" />
+    <ClCompile Include="Persone.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Teacher.cpp" />
   </ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="Class.h" />
     <ClInclude Include="Lesson.h" />
     <ClInclude Include="Mark.h" />
+    <ClInclude Include="Persone.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Teacher.h" />
   </ItemGroup>
