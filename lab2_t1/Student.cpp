@@ -189,7 +189,7 @@ void Student::Set(string Fam, string Name, string Otch, Mark mas_m[], int LenMar
 }
 
 // Ввод ФИО ученика в структуру
-void Student::InpStudFIO()
+void Student::InpFIO()
 {
     cout << "Введите Фамилию ученика: ";
     cin >> fam;

@@ -45,7 +45,7 @@ public:
     void Set(string Fam, string Name, string Otch);
 
     // Ввод учителя
-    void InpFIO();
+    virtual void InpFIO() = 0;
 
     // Ввод учителя на экран
     void DisplayInfo();

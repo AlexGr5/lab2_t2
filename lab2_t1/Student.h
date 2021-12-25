@@ -60,7 +60,7 @@ public:
     void Set(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess);
 
     // Ввод ФИО ученика в структуру
-    void InpStudFIO();
+    virtual void InpFIO();
 
     // Добавление к ученику урока
     bool AddLess(Lesson ls);

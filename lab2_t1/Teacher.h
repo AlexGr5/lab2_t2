@@ -52,7 +52,7 @@ public:
     //void Set(string Fam, string Name, string Otch);
 
     // Ввод учителя
-    void InpFIO();
+    virtual void InpFIO();
 
     // Ввод учителя на экран
     void DisplayInfo();
@@ -64,7 +64,7 @@ public:
     //void AdditionSapces();
 
     // Перегрузка оператора '=' (Teacher = Persone)
-    Teacher& operator=(Persone &persone);
+    //Teacher& operator=(Persone &persone);
 
     // Расширение действий оператора <<
     friend std::ostream& operator<< (std::ostream& out, const Teacher& teaher);

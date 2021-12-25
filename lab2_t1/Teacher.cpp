@@ -109,6 +109,7 @@ void Teacher::AdditionSapces()
 }
 */
 
+/*
 // Перегрузка оператора '=' (Teacher = Persone)
 Teacher& Teacher::operator=(Persone& persone)
 {
@@ -118,6 +119,7 @@ Teacher& Teacher::operator=(Persone& persone)
 
     return *this;
 }
+*/
 
 // Расширение действий оператора <<
 std::ostream& operator<< (std::ostream& out, const Teacher& teacher)

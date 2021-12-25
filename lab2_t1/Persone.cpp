@@ -74,6 +74,7 @@ void Persone::Set(string Fam_s, string Name_s, string Otch_s)
     this->otch = Otch_s;
 }
 
+
 // ¬вод учител€
 void Persone::InpFIO()
 {
@@ -84,6 +85,7 @@ void Persone::InpFIO()
     cout << "¬ведите отчество: ";
     cin >> otch;
 }
+
 
 // ¬вод учител€
 void Persone::DisplayInfo()
