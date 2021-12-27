@@ -13,6 +13,7 @@ int main()
 	system("cls");
 
 
+
 	
 	Teacher teacher1("Иванова", "Марина", "Витальевна");
 	//Persone persone1("Погребнеков", "Николай", "Михайлович");
