@@ -109,7 +109,7 @@ void Teacher::AdditionSapces()
 }
 */
 
-/*
+
 // Перегрузка оператора '=' (Teacher = Persone)
 Teacher& Teacher::operator=(Persone& persone)
 {
@@ -119,7 +119,7 @@ Teacher& Teacher::operator=(Persone& persone)
 
     return *this;
 }
-*/
+
 
 // Расширение действий оператора <<
 std::ostream& operator<< (std::ostream& out, const Teacher& teacher)
@@ -130,11 +130,12 @@ std::ostream& operator<< (std::ostream& out, const Teacher& teacher)
     return out;
 }
 
-// Виртуальная функция вывода сообщения на екран, кем является человек (рабочим, учителем, учеником)
+// Виртуальная/не виртуальная функция вывода сообщения на екран, кем является человек (рабочим, учителем, учеником)
 string Teacher::WhoIs()
 {
-    return "Человек является учителем.";
+    return "учитель";
 }
+
 
 // Деструктор
 Teacher::~Teacher()

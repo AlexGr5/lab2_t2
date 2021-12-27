@@ -52,9 +52,9 @@ public:
     //void Set(string Fam, string Name, string Otch);
 
     // Ввод учителя
-    virtual void InpFIO();
+    /*virtual*/ void InpFIO()/* = 0*/;
 
-    // Ввод учителя на экран
+    // Вывод учителя на экран
     void DisplayInfo();
 
     // Дружественная функция обмена ФИО классов Teacher и Student
@@ -64,13 +64,15 @@ public:
     //void AdditionSapces();
 
     // Перегрузка оператора '=' (Teacher = Persone)
-    //Teacher& operator=(Persone &persone);
+    Teacher& operator=(Persone &persone);
 
     // Расширение действий оператора <<
     friend std::ostream& operator<< (std::ostream& out, const Teacher& teaher);
 
     // Виртуальная функция вывода сообщения на екран, кем является человек (рабочим, учителем, учеником)
     virtual string WhoIs();
+
+   
 
 };
 

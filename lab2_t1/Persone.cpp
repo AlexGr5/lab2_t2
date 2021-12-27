@@ -75,7 +75,7 @@ void Persone::Set(string Fam_s, string Name_s, string Otch_s)
 }
 
 
-// Ввод учителя
+// Ввод человека
 void Persone::InpFIO()
 {
     cout << "Введите Фамилию: ";
@@ -87,7 +87,7 @@ void Persone::InpFIO()
 }
 
 
-// Ввод учителя
+// Вывод человека
 void Persone::DisplayInfo()
 {
     cout << "ФИО: " << fam << " " << name << " " << otch << endl;
@@ -97,7 +97,13 @@ void Persone::DisplayInfo()
 // Виртуальная функция вывода сообщения на екран, кем является человек (рабочим, учителем, учеником)
 string Persone::WhoIs()
 {
-    return "Человек является рабочим.";
+    return "рабочий";
+}
+
+// Сказать привет
+void Persone::SayHello()
+{
+    cout << WhoIs() << " говорит привет!" << endl;
 }
 
 // Деструктор

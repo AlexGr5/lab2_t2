@@ -60,7 +60,7 @@ public:
     void Set(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess);
 
     // Ввод ФИО ученика в структуру
-    virtual void InpFIO();
+    /*virtual*/ void InpFIO()/* = 0*/;
 
     // Добавление к ученику урока
     bool AddLess(Lesson ls);
@@ -86,4 +86,5 @@ public:
     // Виртуальная функция вывода сообщения на екран, кем является человек (рабочим, учителем, учеником)
     virtual string WhoIs();
 
+    
 };
