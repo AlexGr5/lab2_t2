@@ -1,5 +1,6 @@
 #include "Mark.h"
 
+/*
 // Конструктор
 Mark::Mark()
 {
@@ -155,6 +156,8 @@ bool Mark::IsRightMark(int mark)
 
     return res;
 }
+
+*/
 
 // Поверхностная копия
 //Mark Mark::ShallowCopy()
