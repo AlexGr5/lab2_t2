@@ -7,7 +7,7 @@ Student::Student()
     name = "";
     otch = "";
     Lesson L;
-    Mark M;
+    Mark<int> M;
     L.Null();
     M.Set(0);
     countLess = 0;
@@ -29,7 +29,7 @@ Student::Student(string Fam) : Persone(Fam, "", "")
     name = "";
     otch = "";
     Lesson L;
-    Mark M;
+    Mark<int> M;
     L.Null();
     M.Set(0);
     countLess = 0;
@@ -46,7 +46,7 @@ Student::Student(string Fam) : Persone(Fam, "", "")
 }
 
 // Конструктор с параметрами
-Student::Student(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess) : Persone(Fam, Name, Otch)
+Student::Student(string Fam, string Name, string Otch, Mark<int> mas_m[], int LenMark, Lesson mas_l[], int LenLess) : Persone(Fam, Name, Otch)
 {
     //this->fam = Fam;
     //this->name = Name;
@@ -75,7 +75,7 @@ void Student::Null()
     name = "";
     otch = "";
     Lesson L;
-    Mark M;
+    Mark<int> M;
     L.Null();
     M.Set(0);
     this->countLess = 0;
@@ -108,9 +108,9 @@ string Student::GetOtch()
 }
 */
 
-Mark Student::GetMarkByNumber(int i)
+Mark<int> Student::GetMarkByNumber(int i)
 {
-    Mark m;
+    Mark<int> m;
     if (i < 20 && i > -1)
         m = marks[i];
     
@@ -147,7 +147,7 @@ void Student::SetOtch(string Otch)
 */
 
 // Установка Оценок
-void Student::SetMarks(Mark mas_m[], int LenMark)
+void Student::SetMarks(Mark<int> mas_m[], int LenMark)
 {
     for (int i = 0; i < LenMark && i < 20; i++)
     {
@@ -167,7 +167,7 @@ void Student::SetLessons(Lesson mas_l[], int LenLess)
 }
 
 // Инициализация структуры Ученик
-void Student::Set(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess)
+void Student::Set(string Fam, string Name, string Otch, Mark<int> mas_m[], int LenMark, Lesson mas_l[], int LenLess)
 {
     this->fam = Fam;
     this->name = Name;
@@ -219,7 +219,7 @@ bool Student::AddLess(Lesson ls)
 
 // Добавление к ученику урока и оценки
 // 0 - не удачно, 1 - удачно
-bool Student::AddLessAndMark(Lesson ls, Mark m)
+bool Student::AddLessAndMark(Lesson ls, Mark<int> m)
 {
     bool fl = false;
 
@@ -238,7 +238,7 @@ bool Student::AddLessAndMark(Lesson ls, Mark m)
 
 // Добавление к ученику оценки к конкретному предмету
 // 0 - не удачно, 1 - удачно
-bool Student::AddMark(Lesson ls, Mark m)
+bool Student::AddMark(Lesson ls, Mark<int> m)
 {
     bool fl = false;
 

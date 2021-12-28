@@ -19,41 +19,41 @@ private:
 public:
 
     // Конструктор
-    Mark::Mark()
+    Mark()
     {
         value = 0;
     }
 
     // Конструктор с параметром
-    Mark::Mark(T value)
+    Mark(T value)
     {
         this->value = 0;
-        if (IsRightMark(value))
+        //if (IsRightMark(value))
             this->value = value;
     }
 
     // Инициализация структуры Оценка
-    void Mark::Set(T v)
+    void Set(T v)
     {
         this->value = 0;
-        if (IsRightMark(v))
+        //if (IsRightMark(v))
             this->value = v;
     }
 
     // Получение оценки
-    T Mark::Get()
+    T Get()
     {
         return this->value;
     }
 
     // Получение оценки через указатель
-    void Mark::GetPoint(T* Value)
+    void GetPoint(T* Value)
     {
         *Value = value;
     }
 
     // Ввод данных в Класс Оценка
-    void Mark::InpMark()
+    void InpMark()
     {
         string mark;
         cout << "Введите оценку: ";
@@ -77,7 +77,7 @@ public:
     }
 
     // Вывод данных из класса
-    void Mark::DisplayInfo()
+    void DisplayInfo()
     {
         cout << "Оценка: " << value << endl;
 
@@ -85,7 +85,7 @@ public:
 
 
     // Добавление элемента в конец списка
-    void Mark::Add(void)
+    void Add(void)
     {
         if (lastMark == NULL)
             this->prev = NULL;
@@ -99,7 +99,7 @@ public:
     }
 
     // Вывод на дисплей содержимого списка
-    void Mark::reprint(void)
+    void reprint(void)
     {
         Mark* uk;   // Вспомогательный указатель
         uk = lastMark;
@@ -120,17 +120,18 @@ public:
     }
 
     // Создание нового списка
-    void Mark::NewList()
+    void NewList()
     {
         lastMark = NULL;
     }
 
     // Деструктор
-    Mark::~Mark()
+    ~Mark()
     {
         ;
     }
 
+    /*
     // Выполняем Mark + int
     Mark operator+(const Mark& mark, T value)
     {
@@ -141,14 +142,14 @@ public:
     }
 
     // Перегрузка префиксного оператора '++'
-    Mark& Mark::operator++()
+    Mark& operator++()
     {
         value += 1;
         return *this;
     }
 
     // Перегрузка постфиксного оператора '++'
-    Mark Mark::operator++ (int)
+    Mark operator++ (int)
     {
         Mark m1 = *this;
         ++* this;
@@ -156,7 +157,7 @@ public:
     }
 
     // Проверка числа на подходящее для оценки
-    bool Mark::IsRightMark(int mark)
+    bool IsRightMark(int mark)
     {
         bool res = true;
         try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
@@ -173,6 +174,7 @@ public:
 
         return res;
     }
+    */
 
     // Поверхностная копия
     //Mark ShallowCopy();

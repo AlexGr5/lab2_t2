@@ -9,7 +9,7 @@ private:
     //string fam = "";            // Фамилия
     //string name = "";           // Имя
     //string otch = "";           // Отчество
-    Mark marks[20];             // Массив оценок
+    Mark<int> marks[20];             // Массив оценок
     Lesson lessons[20];         // Массив уроков
     int countLess = 0;          // Текущее кол-во уроков
 
@@ -22,7 +22,7 @@ public:
     Student(string Fam);
 
     // Конструктор с параметрами
-    Student(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess);
+    Student(string Fam, string Name, string Otch, Mark<int> mas_m[], int LenMark, Lesson mas_l[], int LenLess);
 
     // Деструктор
     ~Student();
@@ -33,7 +33,7 @@ public:
     //string GetOtch();
 
     // Возвращает оценку по индексу в массиве
-    Mark GetMarkByNumber(int i);
+    Mark<int> GetMarkByNumber(int i);
 
     // Возвращает урок по индексу в массиве
     Lesson GetLessByNumber(int i);
@@ -51,13 +51,13 @@ public:
     //void SetOtch(string Otch);
 
     // Установка Оценок
-    void SetMarks(Mark mas_m[], int LenMark);
+    void SetMarks(Mark<int> mas_m[], int LenMark);
 
     // Установка Уроков
     void SetLessons(Lesson mas_l[], int LenLess);
 
     // Инициализация структуры Ученик
-    void Set(string Fam, string Name, string Otch, Mark mas_m[], int LenMark, Lesson mas_l[], int LenLess);
+    void Set(string Fam, string Name, string Otch, Mark<int> mas_m[], int LenMark, Lesson mas_l[], int LenLess);
 
     // Ввод ФИО ученика в структуру
     /*virtual*/ void InpFIO()/* = 0*/;
@@ -66,10 +66,10 @@ public:
     bool AddLess(Lesson ls);
 
     // Добавление к ученику урока и оценки
-    bool AddLessAndMark(Lesson ls, Mark m);
+    bool AddLessAndMark(Lesson ls, Mark<int> m);
 
     // Добавление к ученику оценки к конкретному предмету
-    bool AddMark(Lesson ls, Mark m);
+    bool AddMark(Lesson ls, Mark<int> m);
 
     // Вывод ученика с предметами, которые у него есть
     void DisplayInfo();
