@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string>
 #include <locale.h>
+#include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -45,7 +47,7 @@ public:
     void Set(string Fam, string Name, string Otch);
 
     // Ввод человека
-    virtual void InpFIO() = 0;
+    /*virtual*/ void InpFIO()/* = 0*/;
 
     // Вывод человека на экран
     void DisplayInfo();
@@ -55,4 +57,5 @@ public:
 
     // Сказать привет
     void SayHello();
+
 };
